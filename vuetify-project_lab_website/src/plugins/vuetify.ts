@@ -13,8 +13,16 @@ import '../styles/layers.css'
 import 'vuetify/styles'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+
 export default createVuetify({
   theme: {
-    defaultTheme: 'system',
-  },
+    themes: {
+      light: {
+        colors: {
+          primary: '#000000',
+          secondary: '#00ACC1',
+        }
+      }
+    }
+  }
 })
