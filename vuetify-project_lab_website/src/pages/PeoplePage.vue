@@ -84,7 +84,7 @@ const people = ref([
     description: 'Principal Investigator',
     group: 'Lab Director',
     years: '2018 - Present',
-    photo: '/images/parikshit-maini.png',
+    photo: '/images/people/parikshit-maini.png',
   },
 
   // PhD Students
@@ -94,7 +94,7 @@ const people = ref([
     description: 'PhD Student',
     group: 'PhD Students',
     years: '2018 - Present',
-    photo: '/images/arif-ahmed.png',
+    photo: '/images/people/arif-ahmed.png',
   },
   {
     id: 3,
@@ -102,7 +102,7 @@ const people = ref([
     description: 'PhD Student',
     group: 'PhD Students',
     years: '2018 - Present',
-    photo: '/images/nathaniel-rose.png',
+    photo: '/images/people/nathaniel-rose.png',
   },
   {
     id: 4,
@@ -110,7 +110,7 @@ const people = ref([
     description: 'Master\'s Students',
     group: 'Master\'s Students',
     years: '2018 - Present',
-    photo: '/images/hannah-chung.png',
+    photo: '/images/people/hannah-chung.png',
   },
   {
     id: 5,
@@ -118,7 +118,7 @@ const people = ref([
     description: 'Master\'s Students',
     group: 'Master\'s Students',
     years: '2018 - Present',
-    photo: '/images/emanuel-gutierrez-cornejo.png',
+    photo: '/images/people/emanuel-gutierrez-cornejo.png',
   },
   {
     id: 6,
@@ -126,7 +126,7 @@ const people = ref([
     description: 'Master\'s Students',
     group: 'Master\'s Students',
     years: '2025 - Present',
-    photo: '/images/jairo-cadena-mendez.png',
+    photo: '/images/people/jairo-cadena-mendez.png',
   },
   {
     id: 7,
@@ -134,7 +134,7 @@ const people = ref([
     description: 'Master\'s Students',
     group: 'Master\'s Students',
     years: '2026 - Present',
-    photo: '/images/dominic-palmieri.png',
+    photo: '/images/people/dominic-palmieri.png',
   },
   {
   id: 8,
@@ -142,7 +142,7 @@ const people = ref([
   description: 'Master\'s Students',
   group: 'Master\'s Students',
   years: '2026 - Present',
-  photo: '/images/yovan-hirales.png',
+  photo: '/images/people/yovan-hirales.png',
   },
 
   // Alumni
@@ -151,14 +151,14 @@ const people = ref([
     name: 'David Park',
     description: 'PhD Alumni → Google DeepMind',
     group: 'Alumni',
-    photo: '/images/david-park.png',
+    photo: '/images/people/david-park.png',
   },
   {
     id: 10,
     name: 'Priya Nair',
     description: 'MS Alumni → Boston Dynamics',
     group: 'Alumni',
-    photo: '/images/priya-nair.png',
+    photo: '/images/people/priya-nair.png',
   },
 ])
 

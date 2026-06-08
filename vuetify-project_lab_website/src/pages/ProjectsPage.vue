@@ -1,169 +1,128 @@
 <template>
-<AppLayout>
-    <v-app :theme="theme">
+  <AppLayout>
+    <v-container max-width="900" class="py-12">
 
-        <v-main>
-        <v-container max-width="900" class="py-12">
+      <!-- Page Header -->
+      <div class="mb-10">
+        <h1 class="page-title mb-2">Projects</h1>
+        <p class="text-medium-emphasis" style="font-size: 1.05rem;">
+          Projects from the SARAL lab.
+        </p>
+      </div>
 
-            <!-- Page Header -->
-            <div class="mb-10">
-            <h1 class="page-title mb-2">Projects</h1>
-            <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-                Projects from the SARAL lab.
-            </p>
-            </div>
+      <!-- Groups -->
+      <div v-for="group in projectsByValue" :key="group.value" class="mb-10">
 
-            <!-- Year Groups -->
-            <div v-for="group in publicationsByYear" :key="group.year" class="mb-10">
+        <!-- Group Heading -->
+        <div class="d-flex align-center mb-4">
+          <span class="year-label mr-4">{{ group.value }}</span>
+          <v-divider />
+        </div>
 
-            <!-- Year Heading -->
-            <div class="year-heading d-flex align-center mb-4">
-                <span class="year-label mr-4">{{ group.year }}</span>
-                <v-divider />
-            </div>
+        <!-- Project Cards -->
+        <v-card
+          v-for="project in group.projects"
+          :key="project.id"
+          flat
+          border
+          class="project-card mb-4 pa-5"
+          :ripple="false"
+        >
+          <!-- Title -->
+          <div class="project-title mb-1">{{ project.title }}</div>
 
-            <!-- Papers -->
-            <v-card
-                v-for="pub in group.papers"
-                :key="pub.id"
-                flat
-                border
-                class="pub-card mb-3 pa-5"
-                :ripple="false"
-            >
-                <div class="d-flex align-start justify-space-between gap-4">
-                <div class="flex-grow-1">
+          <!-- People -->
+          <div class="project-people mb-1">{{ project.people }}</div>
 
-                    <!-- Title -->
-                    <div class="pub-title mb-1">{{ pub.title }}</div>
+          <!-- Date -->
+          <div class="project-date mb-3">{{ project.date }}</div>
 
-                    <!-- Authors -->
-                    <div class="pub-authors mb-2">{{ pub.authors }}</div>
+          <!-- Description -->
+          <div v-if="project.description" class="project-description text-medium-emphasis mb-4">
+            {{ project.description }}
+          </div>
 
-                    <!-- Decription -->
-                    <div class="pub-description text-medium-emphasis mb-2">{{ pub.decription }}</div>
+          <!-- Images -->
+          <div v-if="project.images && project.images.length > 0">
+            <v-row dense>
+              <v-col
+                v-for="(img, i) in project.images"
+                :key="i"
+                :cols="project.images.length === 1 ? 12 : 6"
+              >
+                <v-img
+                  :src="img.src"
+                  :alt="img.caption || project.title"
+                  cover
+                  rounded="lg"
+                  class="project-img"
+                >
+                  <!-- Caption overlay -->
+                  <template v-if="img.caption" v-slot:default>
+                    <div class="img-caption d-flex align-end fill-height pa-3">
+                      <span class="caption-text">{{ img.caption }}</span>
+                    </div>
+                  </template>
+                </v-img>
+              </v-col>
+            </v-row>
+          </div>
 
-                </div>
-                </div>
-            </v-card>
+        </v-card>
 
-            </div>
-        </v-container>
-        </v-main>
-
-    </v-app>
-</AppLayout>
+      </div>
+    </v-container>
+  </AppLayout>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import AppLayout from '@/components/AppLayout.vue'
 
-const theme = ref('light')
-
-// ── Publication data ──────────────────────────────────────────────────────────
-// Replace this array with your real data. Each entry supports:
-//   id, year, title, authors, venue, type ('journal' | 'conference' | 'workshop'), pdfUrl, arxivUrl, codeUrl
-const publications = ref([
+// ── Project data ──────────────────────────────────────────────────────────────
+// Each project supports:
+//   id, year, title, authors, description
+//   images: array of { src, caption } — caption is optional, set to '' to hide
+//   Drop image files in public/images/projects/ and reference them below.
+const projects = ref([
   {
     id: 1,
-    year: 2024,
-    title: 'Learning Reactive Motion Policies for Mobile Manipulation in Dynamic Environments',
-    authors: 'J. Smith, A. Patel, R. Kumar, M. Torres',
-    decription: 'This project focuses on developing learning-based motion policies for mobile manipulators that can react to dynamic changes in the environment. We propose a novel framework that combines deep reinforcement learning with real-time perception to enable robots to perform complex manipulation tasks while navigating through cluttered and unpredictable settings.',
+    value: 'Current Projects',
+    title: 'RoboHydra',
+    people: 'People here',
+    date: '2026 - Present',
+    description: 'Decription of the project here.',
+    images: [
+      { src: '/images/projects/testpr1.jpeg', caption: 'Robot navigating a cluttered environment' },
+      { src: '/images/projects/project1b.jpeg', caption: 'Manipulation task execution' },
+      { src: '/images/projects/project1c.jpeg', caption: 'Real-time perception in action' },
+    ],
   },
   {
     id: 2,
-    year: 2024,
-    title: 'Uncertainty-Aware 3D Object Detection for Outdoor Autonomous Navigation',
-    authors: 'L. Chen, J. Smith, B. Nguyen',
-    venue: 'RA-L 2024',
-    type: 'journal',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: null,
-  },
-  {
-    id: 3,
-    year: 2024,
-    title: 'Task-Parameterized Skill Learning from a Single Demonstration',
-    authors: 'A. Patel, J. Smith',
-    venue: 'CoRL 2024 Workshop',
-    type: 'workshop',
-    pdfUrl: '#',
-    arxivUrl: null,
-    codeUrl: null,
-  },
-  {
-    id: 4,
-    year: 2023,
-    title: 'Efficient Whole-Body Control via Hierarchical Quadratic Programming on Legged Robots',
-    authors: 'R. Kumar, M. Torres, J. Smith',
-    venue: 'IEEE IROS 2023',
-    type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: '#',
-  },
-  {
-    id: 5,
-    year: 2023,
-    title: 'Semantic Map Building with Probabilistic Object Permanence',
-    authors: 'B. Nguyen, L. Chen, A. Patel, J. Smith',
-    venue: 'IJRR 2023',
-    type: 'journal',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: null,
-  },
-  {
-    id: 6,
-    year: 2022,
-    title: 'Online Terrain Estimation for Adaptive Footstep Planning',
-    authors: 'M. Torres, R. Kumar, J. Smith',
-    venue: 'IEEE ICRA 2022',
-    type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: '#',
-  },
-  {
-    id: 7,
-    year: 2022,
-    title: 'Safe Exploration in Unknown Environments via Conformal Prediction',
-    authors: 'J. Smith, B. Nguyen',
-    venue: 'RSS 2022',
-    type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: null,
+    value: 'Previous Projects',
+    title: 'Title',
+    people: 'People here',
+    date: '2023 - 2025',
+    description: 'Description of the project here.',
+    images: [
+      { src: '/images/projects/project2a.jpeg', caption: 'Caption for image 2a' },
+    ],
   },
 ])
 
-// Group papers by year descending
-const publicationsByYear = computed(() => {
-  const years = [...new Set(publications.value.map(p => p.year))].sort((a, b) => b - a)
-  return years.map(year => ({
-    year,
-    papers: publications.value.filter(p => p.year === year),
+
+// Group by value
+const projectsByValue = computed(() => {
+  const values = [...new Set(projects.value.map(p => p.value))].sort((a, b) => b - a)
+  return values.map(value => ({
+    value,
+    projects: projects.value.filter(p => p.value === value),
   }))
 })
 </script>
 
 <style scoped>
-.logo-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.nav-btn {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 .page-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
@@ -179,42 +138,52 @@ const publicationsByYear = computed(() => {
   color: rgb(var(--v-theme-error));
 }
 
-.pub-card {
+.project-card {
   border-radius: 10px !important;
   transition: box-shadow 0.15s ease;
 }
 
-.pub-card:hover {
+.project-card:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
-.pub-title {
+.project-title {
   font-size: 0.975rem;
   font-weight: 600;
   line-height: 1.4;
 }
 
-.pub-authors {
+.project-people {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5;
+  color: rgba(var(--v-theme-on-surface), 0.6);
 }
 
-.pub-description {
+.project-date {
   font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.5;
+  color: rgba(var(--v-theme-on-surface), 0.6);
 }
 
-.venue-chip {
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
+.project-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
-.link-btn {
-  font-size: 0.8rem !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  padding: 0 6px !important;
-  min-width: unset !important;
+.project-img {
+  height: 220px;
+}
+
+.img-caption {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+}
+
+.caption-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 </style>
