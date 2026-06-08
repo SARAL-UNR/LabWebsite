@@ -115,84 +115,111 @@ const theme = ref('light')
 // Replace this array with your real data. Each entry supports:
 //   id, year, title, authors, venue, type ('journal' | 'conference' | 'workshop'), pdfUrl, arxivUrl, codeUrl
 const publications = ref([
+
+
+// 2026
   {
     id: 1,
-    year: 2024,
-    title: 'Learning Reactive Motion Policies for Mobile Manipulation in Dynamic Environments',
-    authors: 'J. Smith, A. Patel, R. Kumar, M. Torres',
-    venue: 'IEEE ICRA 2024',
+    year: 2026,
+    title: 'Will the Coffee Spill? Estimating Smoothness of Mobile Robot Traversal in Off-road Terrains using Proprioceptive Sensing',
+    authors: 'Emanuel Gutierrez-Cornejo, Arif Ahmed, Nathaniel Rose, Dominic Palmieri, Milan Jain, Parikshit Maini',
+    venue: 'CoRL 2026',
     type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: '#',
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
   },
   {
+    id: 8,
+    year: 2026,
+    title: 'Review and Evaluation of Point-Cloud based Leaf Surface Reconstruction Methods for Agricultural Applications',
+    authors: 'Arif Ahmed, Parikshit Maini',
+    venue: 'CoRR 2026',
+    type: 'conference',
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+
+  // 2025
+  {
     id: 2,
-    year: 2024,
-    title: 'Uncertainty-Aware 3D Object Detection for Outdoor Autonomous Navigation',
-    authors: 'L. Chen, J. Smith, B. Nguyen',
-    venue: 'RA-L 2024',
-    type: 'journal',
-    pdfUrl: '#',
-    arxivUrl: '#',
+    year: 2025,
+    title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
+    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
+    venue: 'RSS 2025 Workshop',
+    type: 'workshop',
+    pdfUrl: null,
+    arxivUrl: null,
     codeUrl: null,
   },
   {
     id: 3,
-    year: 2024,
-    title: 'Task-Parameterized Skill Learning from a Single Demonstration',
-    authors: 'A. Patel, J. Smith',
-    venue: 'CoRL 2024 Workshop',
-    type: 'workshop',
-    pdfUrl: '#',
+    year: 2025,
+    title: 'SARAL-Bot: Autonomous Robot for Strawberry Plant Care',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Gaurav Srikar, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2025',
+    type: 'conference',
+    pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
   },
   {
     id: 4,
-    year: 2023,
-    title: 'Efficient Whole-Body Control via Hierarchical Quadratic Programming on Legged Robots',
-    authors: 'R. Kumar, M. Torres, J. Smith',
-    venue: 'IEEE IROS 2023',
+    year: 2025,
+    title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
+    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
+    venue: 'CoRR 2025',
     type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: '#',
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
   },
   {
     id: 5,
-    year: 2023,
-    title: 'Semantic Map Building with Probabilistic Object Permanence',
-    authors: 'B. Nguyen, L. Chen, A. Patel, J. Smith',
-    venue: 'IJRR 2023',
-    type: 'journal',
-    pdfUrl: '#',
-    arxivUrl: '#',
+    year: 2025,
+    title: 'Online Planning for Cooperative Air-Ground Robot Systems with Unknown Fuel Requirements',
+    authors: 'Ritvik Agarwal, Behnoushsadat Hatami, Alvika Gautam, Parikshit Maini',
+    venue: 'CoRR 2025',
+    type: 'conference',
+    pdfUrl: null,
+    arxivUrl: null,
     codeUrl: null,
   },
   {
     id: 6,
-    year: 2022,
-    title: 'Online Terrain Estimation for Adaptive Footstep Planning',
-    authors: 'M. Torres, R. Kumar, J. Smith',
-    venue: 'IEEE ICRA 2022',
+    year: 2025,
+    title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
+    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
+    venue: 'CoRR 2025',
     type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
-    codeUrl: '#',
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
   },
   {
     id: 7,
-    year: 2022,
-    title: 'Safe Exploration in Unknown Environments via Conformal Prediction',
-    authors: 'J. Smith, B. Nguyen',
-    venue: 'RSS 2022',
+    year: 2025,
+    title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
+    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
+    venue: 'CASE 2025',
     type: 'conference',
-    pdfUrl: '#',
-    arxivUrl: '#',
+    pdfUrl: null,
+    arxivUrl: null,
     codeUrl: null,
   },
 ])
+
+
+// Cooperative Aerial-Ground Vehicle Route Planning With Fuel Constraints for Coverage Applications
+// Cooperative Planning for Fuel-constrained Aerial Vehicles and Ground-based Refueling Vehicles for Large-Scale Coverage
+// A multi-robot foraging model on deciding predation risk vs. food quality trade-offs
+// Persistent Monitoring with Refueling on a Terrain Using a Team of Aerial and Ground Robotspdf icon
+// Visual Monitoring of Points of Interest on a 2.5D Terrain Using a UAV With Limited Field-of-View Constraint
+// Curvature constrained trajectory planning for a UAV through a sequence of points: A perturbation approach
+// Visibility-Based Monitoring of a Path Using a Heterogeneous Robot Team
+// Visual Monitoring for Multiple Points of Interest on a 2.5D Terrain using a UAV with Limited Field-of-View Constraint
+
 
 // Group papers by year descending
 const publicationsByYear = computed(() => {
