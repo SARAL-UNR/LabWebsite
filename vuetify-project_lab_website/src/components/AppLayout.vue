@@ -1,6 +1,6 @@
 <template>
   <v-app :theme="theme">
-    <v-app-bar flat border="b" height="64" color="error" class="px-6">
+    <v-app-bar flat border="b" height="64" color="primary" class="px-6">
         
       <!-- Logo on the far left -->
       <template v-slot:prepend>
@@ -28,7 +28,7 @@
       <slot />  <!-- page content goes here -->
     </v-main>
 
-    <v-footer border="t" color="error" class="px-6 py-4">
+    <v-footer border="t" color="primary" class="px-6 py-4">
       <v-container max-width="900" class="pa-0">
         <div class="d-flex justify-space-between align-center flex-wrap gap-4">
           

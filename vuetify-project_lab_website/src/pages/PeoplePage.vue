@@ -140,7 +140,7 @@ const people = ref([
   id: 8,
   name: 'Yovan Hirales',
   description: 'Master\'s Students',
-  group: 'Master\'s Students',
+  group: 'Undergraduates',
   years: '2026 - Present',
   photo: '/images/people/yovan-hirales.png',
   },
@@ -204,7 +204,7 @@ function initials(name) {
   font-weight: 700;
   letter-spacing: -0.5px;
   white-space: nowrap;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--v-theme-primary));
 }
 
 .person-card {
@@ -218,14 +218,9 @@ function initials(name) {
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 8px;
-  border: 2px solid rgba(var(--v-theme-error), 0.12);
+  border: 2px solid rgba(var(--v-theme-primary), 0.12);
   transition: border-color 0.2s ease, transform 0.2s ease;
   background-color: rgba(0, 0, 0, 0.05);
-}
-
-.portrait-wrapper:hover {
-  border-color: rgba(var(--v-theme-error), 0.5);
-  transform: translateY(-3px);
 }
 
 .portrait-img {
@@ -239,7 +234,7 @@ function initials(name) {
 .portrait-fallback {
   width: 100%;
   height: 100%;
-  background-color: rgb(var(--v-theme-error));
+  background-color: rgb(var(--v-theme-primary));
 }
 
 .portrait-initials {

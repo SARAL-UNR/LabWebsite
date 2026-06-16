@@ -61,7 +61,7 @@
                     size="small"
                     prepend-icon="mdi-file-pdf-box"
                     class="link-btn"
-                    color="error"
+                    color="primary"
                   >
                     PDF
                   </v-btn>
@@ -74,7 +74,7 @@
                     size="small"
                     prepend-icon="mdi-open-in-new"
                     class="link-btn"
-                    color="error"
+                    color="primary"
                   >
                     arXiv
                   </v-btn>
@@ -87,7 +87,7 @@
                     size="small"
                     prepend-icon="mdi-github"
                     class="link-btn"
-                    color="error"
+                    color="primary"
                   >
                     Code
                   </v-btn>
@@ -122,7 +122,7 @@ const publications = ref([
     id: 1,
     year: 2026,
     title: 'Will the Coffee Spill? Estimating Smoothness of Mobile Robot Traversal in Off-road Terrains using Proprioceptive Sensing',
-    authors: 'Emanuel Gutierrez-Cornejo, Arif Ahmed, Nathaniel Rose, Dominic Palmieri, Milan Jain, Parikshit Maini',
+    authors: 'Emanuel Gutierrez-Cornejo, Arif Ahmed, Nathaniel Rose, Dominic Palmieri, Milan Jain, Dr.Parikshit Maini',
     venue: 'CoRL 2026',
     type: 'conference',
     pdfUrl: null,
@@ -133,7 +133,7 @@ const publications = ref([
     id: 8,
     year: 2026,
     title: 'Review and Evaluation of Point-Cloud based Leaf Surface Reconstruction Methods for Agricultural Applications',
-    authors: 'Arif Ahmed, Parikshit Maini',
+    authors: 'Arif Ahmed, Dr. Parikshit Maini',
     venue: 'CoRR 2026',
     type: 'conference',
     pdfUrl: null,
@@ -146,7 +146,7 @@ const publications = ref([
     id: 2,
     year: 2025,
     title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
-    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
+    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Dr. Parikshit Maini',
     venue: 'RSS 2025 Workshop',
     type: 'workshop',
     pdfUrl: null,
@@ -157,7 +157,7 @@ const publications = ref([
     id: 3,
     year: 2025,
     title: 'SARAL-Bot: Autonomous Robot for Strawberry Plant Care',
-    authors: 'Arif Ahmed, Ritvik Agarwal, Gaurav Srikar, Nathaniel Rose, Parikshit Maini',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Gaurav Srikar, Nathaniel Rose, Dr. Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
     pdfUrl: null,
@@ -168,7 +168,7 @@ const publications = ref([
     id: 4,
     year: 2025,
     title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
-    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
+    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Dr. Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
     pdfUrl: null,
@@ -179,7 +179,7 @@ const publications = ref([
     id: 5,
     year: 2025,
     title: 'Online Planning for Cooperative Air-Ground Robot Systems with Unknown Fuel Requirements',
-    authors: 'Ritvik Agarwal, Behnoushsadat Hatami, Alvika Gautam, Parikshit Maini',
+    authors: 'Ritvik Agarwal, Behnoushsadat Hatami, Alvika Gautam, Dr. Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
     pdfUrl: null,
@@ -190,7 +190,7 @@ const publications = ref([
     id: 6,
     year: 2025,
     title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
-    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
+    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Dr. Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
     pdfUrl: null,
@@ -201,7 +201,7 @@ const publications = ref([
     id: 7,
     year: 2025,
     title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
-    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
+    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Dr. Parikshit Maini',
     venue: 'CASE 2025',
     type: 'conference',
     pdfUrl: null,
@@ -264,7 +264,7 @@ function venueColor(type) {
   font-weight: 700;
   letter-spacing: -0.5px;
   white-space: nowrap;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--v-theme-primary));
 }
 
 .pub-card {

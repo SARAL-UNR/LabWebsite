@@ -2,8 +2,8 @@
   <AppLayout>
     <v-container max-width="900" class="py-16 text-center">
 
-      <h1 class="hero-title mb-6">
-        Systems and Algorithms for Robot Autonomy Lab
+      <h1 class="hero-title mb-12" style="color: rgb(var(--v-theme-secondary));">
+        Systems and Algorithms for Robot Autonomy Lab (SARAL)
       </h1>
 
       <!-- Slideshow -->

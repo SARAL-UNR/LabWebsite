@@ -31,7 +31,7 @@
                   />
                   <!-- Fallback if no logo -->
                   <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                    <v-icon size="28" color="error">mdi-currency-usd</v-icon>
+                    <v-icon size="28" color="primary">mdi-currency-usd</v-icon>
                   </div>
                 </div>
 
@@ -145,7 +145,7 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
   font-weight: 700;
   letter-spacing: -0.5px;
   white-space: nowrap;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--v-theme-primary));
 }
 
 .funding-card {
@@ -180,7 +180,7 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
 .funding-logo-fallback {
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--v-theme-error), 0.08);
+  background-color: rgba(var(--v-theme-primary), 0.08);
 }
 
 .funding-agency {

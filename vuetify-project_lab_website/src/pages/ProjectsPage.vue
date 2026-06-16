@@ -52,8 +52,6 @@
               >
                 <v-img
                   :src="img.src"
-                  :alt="img.caption || project.title"
-                  cover
                   rounded="lg"
                   class="project-img"
                 >
@@ -89,20 +87,67 @@ const projects = ref([
     id: 1,
     value: 'Current Projects',
     title: 'RoboHydra',
-    people: 'People here',
+    people: 'Dominic Palmieri, Emanuel Gutierrez-Cornejo',
     date: '2026 - Present',
     description: 'Decription of the project here.',
     images: [
-      { src: '/images/projects/testpr1.jpeg', caption: 'Robot navigating a cluttered environment' },
-      { src: '/images/projects/project1b.jpeg', caption: 'Manipulation task execution' },
-      { src: '/images/projects/project1c.jpeg', caption: 'Real-time perception in action' },
+      { src: '/images/projects/Hydra1.png', caption: 'RoboHydra' },
+      { src: '/images/projects/Hydra2.png'},
+    ],
+  },
+  {
+    id: 3,
+    value: 'Current Projects',
+    title: 'Robotic Soil moisture Sensing (RSMS)',
+    people: 'Nathaniel Rose, Hannah Chung',
+    date: 'DATES HERE',
+    description: `
+      The MoistureMapper is an autonomous robot that canmeasure soil moisture at points of interest of a farm plot. The goal is to build a comprehensive map of the soil moisture across the field`,
+    images: [
+      { src: '/images/projects/RSMS1.png'},
+      { src: '/images/projects/RSMS2.png'},
+    ],
+  },
+  {
+    id: 4,
+    value: 'Current Projects',
+    title: 'Stability Aware Navigation',
+    people: 'Emanuel Gutierrez-Cornejo, Arif Ahmed, Nathaniel Rose, Dominic Palmieri',
+    date: 'DATES HERE',
+    description: 'The goal is to predict a robot stability score between 0 and 1. We do this by training a novel vision-based stability metric using count-circle-crossings (C3) score. The method is a data-based learning networktrained on C3 score to learn currentstability from IMU and velocity.',
+    images: [
+      { src: '/images/projects/C31.png'},
+      { src: '/images/projects/C32.png'},
+    ],
+  },
+  {
+    id: 5,
+    value: 'Current Projects',
+    title: 'Plant Phenotyping: Leaf Area Index (LAI)',
+    people: '*Arif Ahmed',
+    date: 'DATES HERE',
+    description: 'Mobile manipulator and UAV work together tophenotype crops for selecting better yielding irrigationstrategies.',
+    images: [
+      { src: '/images/projects/LAI1.png' },
+      { src: '/images/projects/LAI2.png' },
+    ],
+  },
+  {
+    id: 6,
+    value: 'Current Projects',
+    title: 'Robotics and AI for Plant Breeding',
+    people: '*Arif Ahmed, Jairo Cadena-Mendez, Yovan Hirales',
+    date: 'DATES HERE',
+    description: `Drone based precision spraying of agrochemicals on a field-wide scale. Work with farmers and breeders to apply treatments to corn, sorghum, and onion crops`,
+    images: [
+      { src: '/images/projects/Spray1.png' },
     ],
   },
   {
     id: 2,
     value: 'Previous Projects',
-    title: 'Title',
-    people: 'People here',
+    title: 'CowBot',
+    people: 'Dr. Parikshit Maini',
     date: '2023 - 2025',
     description: 'Description of the project here.',
     images: [
@@ -135,7 +180,7 @@ const projectsByValue = computed(() => {
   font-weight: 700;
   letter-spacing: -0.5px;
   white-space: nowrap;
-  color: rgb(var(--v-theme-error));
+  color: rgb(var(--v-theme-primary));
 }
 
 .project-card {
@@ -172,9 +217,6 @@ const projectsByValue = computed(() => {
   line-height: 1.6;
 }
 
-.project-img {
-  height: 220px;
-}
 
 .img-caption {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
