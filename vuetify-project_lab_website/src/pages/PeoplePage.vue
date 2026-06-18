@@ -27,11 +27,11 @@
           sm="4"
           md="3"
         >
-          <div
-            class="person-card"
-            :class="{ 'person-card--linked': person.slug }"
-            @click="person.slug && $router.push({ name: 'person', params: { slug: person.slug } })"
-          >
+        <div
+          class="person-card"
+          :class="{ 'person-card--linked': person.slug }"
+          @click="handleClick(person)"
+        >
             <!-- Portrait -->
             <div class="portrait-wrapper mb-3">
               <img
@@ -59,12 +59,14 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const people = ref([
   // Lab Director
   {
     id: 1,
-    slug: 'parikshit-maini',
+    slug: 'https://www.unr.edu',
     name: 'Dr. Parikshit Maini',
     description: 'Principal Investigator',
     group: 'Lab Director',
@@ -175,6 +177,15 @@ const groups = computed(() =>
 
 function initials(name) {
   return name.split(' ').filter(Boolean).map(n => n[0]).slice(0, 2).join('').toUpperCase()
+}
+
+function handleClick(person) {
+  if (!person.slug) return
+  if (person.slug.startsWith('http')) {
+    window.open(person.slug, '_blank')
+  } else {
+    router.push({ name: 'person', params: { slug: person.slug } })
+  }
 }
 </script>
 

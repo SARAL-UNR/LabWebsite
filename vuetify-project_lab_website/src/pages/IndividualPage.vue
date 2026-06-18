@@ -34,6 +34,7 @@
         <div class="flex-grow-1">
           <h1 class="person-name mb-1">{{ person.name }}</h1>
           <div class="person-role text-medium-emphasis mb-4">{{ person.role }}</div>
+          <div class = "person-year text-medium-emphasis mb-4">{{ person.year }}</div>
 
           <!-- External links -->
           <div class="d-flex flex-wrap gap-2">
@@ -200,11 +201,12 @@ const route = useRoute()
 const people = [
   {
     slug: 'parikshit-maini',
-    name: 'Dr. Jane Smith',
+    name: 'Dr. Parikshit Maini',
     role: 'Principal Investigator',
     group: 'PI',
-    photo: '/images/people/jane-smith.png',
-    bio: `Dr. Smith is an Assistant Professor in the Department of Computer Science and Engineering at the University of Nevada, Reno. Her research focuses on autonomous mobile manipulation, motion planning, and learning-based control for robots operating in unstructured real-world environments.`,
+    year: '2018 - Present',
+    photo: '/images/people/parikshit-maini.png',
+    bio: `TEXT HERE`,
     interests: ['Mobile Manipulation', 'Motion Planning', 'Deep Reinforcement Learning', 'Robot Perception'],
     links: {
       email: 'jsmith@unr.edu',
@@ -213,34 +215,14 @@ const people = [
       github: 'https://github.com',
       linkedin: '',
     },
-    publications: [
-      {
-        title: 'Learning Reactive Motion Policies for Mobile Manipulation in Dynamic Environments',
-        authors: 'J. Smith, A. Patel, R. Kumar, M. Torres',
-        venue: 'IEEE ICRA 2024',
-        pdfUrl: '#',
-        arxivUrl: '#',
-      },
-      {
-        title: 'Safe Exploration in Unknown Environments via Conformal Prediction',
-        authors: 'J. Smith, B. Nguyen',
-        venue: 'RSS 2022',
-        pdfUrl: '#',
-        arxivUrl: '#',
-      },
-    ],
-    projects: [
-      { name: 'RoboHydra' },
-      { name: 'Stability Aware Navigation' },
-    ],
   },
   {
-    slug: 'arjun-patel',
-    name: 'Arjun Patel',
+    slug: 'arif-ahmed',
+    name: 'Arif Ahmed',
     role: 'PhD Student',
     group: 'PhD Students',
-    photo: '/images/people/arjun-patel.png',
-    bio: `Arjun is a second-year PhD student working on task-parameterized skill learning and imitation learning for robotic manipulation.`,
+    photo: '/images/people/arif-ahmed.png',
+    bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
       email: 'apatel@unr.edu',
@@ -262,6 +244,174 @@ const people = [
       { name: 'RoboHydra' },
     ],
   },
+  {
+    slug: 'nathaniel-rose',
+    name: 'Nathaniel Rose',
+    role: 'PhD Student',
+    group: 'PhD Students',
+    photo: '/images/people/nathaniel-rose.png',
+    bio: `TEXT HERE`,
+    interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
+    links: {
+      email: 'apatel@unr.edu',
+      website: '',
+      scholar: '',
+      github: 'https://github.com',
+      linkedin: '',
+    },
+    publications: [
+      {
+        title: 'Task-Parameterized Skill Learning from a Single Demonstration',
+        authors: 'A. Patel, J. Smith',
+        venue: 'CoRL 2024 Workshop',
+        pdfUrl: '#',
+        arxivUrl: null,
+      },
+    ],
+    projects: [
+      { name: 'RoboHydra' },
+    ],
+  },
+  {
+    slug: 'hannah-chung',
+    name: 'Hannah Chung',
+    role: 'PhD Student',
+    group: 'PhD Students',
+    photo: '/images/people/hannah-chung.png',
+    bio: `TEXT HERE`,
+    interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
+    links: {
+      email: 'apatel@unr.edu',
+      website: '',
+      scholar: '',
+      github: 'https://github.com',
+      linkedin: '',
+    },
+    publications: [
+      {
+        title: 'Task-Parameterized Skill Learning from a Single Demonstration',
+        authors: 'A. Patel, J. Smith',
+        venue: 'CoRL 2024 Workshop',
+        pdfUrl: '#',
+        arxivUrl: null,
+      },
+    ],
+    projects: [
+      { name: 'RoboHydra' },
+    ],
+  },
+  {
+    slug: 'emanuel-gutierrez-cornejo',
+    name: 'Emanuel Gutierrez-Cornejo',
+    role: 'PhD Student',
+    group: 'PhD Students',
+    photo: '/images/people/emanuel-gutierrez-cornejo.png',
+    bio: `TEXT HERE`,
+    interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
+    links: {
+      email: 'apatel@unr.edu',
+      website: '',
+      scholar: '',
+      github: 'https://github.com',
+      linkedin: '',
+    },
+    publications: [
+      {
+        title: 'Task-Parameterized Skill Learning from a Single Demonstration',
+        authors: 'A. Patel, J. Smith',
+        venue: 'CoRL 2024 Workshop',
+        pdfUrl: '#',
+        arxivUrl: null,
+      },
+    ],
+    projects: [
+      { name: 'RoboHydra' },
+    ],
+  },
+  {
+    slug: 'jairo-cadena-mendez',
+    name: 'Jairo Cadena-Mendez',
+    role: 'PhD Student',
+    group: 'PhD Students',
+    photo: '/images/people/jairo-cadena-mendez.png',
+    bio: `TEXT HERE`,
+    interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
+    links: {
+      email: 'apatel@unr.edu',
+      website: '',
+      scholar: '',
+      github: 'https://github.com',
+      linkedin: '',
+    },
+    publications: [
+      {
+        title: 'Task-Parameterized Skill Learning from a Single Demonstration',
+        authors: 'A. Patel, J. Smith',
+        venue: 'CoRL 2024 Workshop',
+        pdfUrl: '#',
+        arxivUrl: null,
+      },
+    ],
+    projects: [
+      { name: 'RoboHydra' },
+    ],
+  },
+  {
+    slug: 'dominic-palmieri',
+    name: 'Dominic Palmieri',
+    role: 'PhD Student',
+    group: 'PhD Students',
+    photo: '/images/people/dominic-palmieri.png',
+    bio: `TEXT HERE`,
+    interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
+    links: {
+      email: 'apatel@unr.edu',
+      website: '',
+      scholar: '',
+      github: 'https://github.com',
+      linkedin: '',
+    },
+    publications: [
+      {
+        title: 'Task-Parameterized Skill Learning from a Single Demonstration',
+        authors: 'A. Patel, J. Smith',
+        venue: 'CoRL 2024 Workshop',
+        pdfUrl: '#',
+        arxivUrl: null,
+      },
+    ],
+    projects: [
+      { name: 'RoboHydra' },
+    ],
+  },
+  {
+    slug: 'yovan-hirales',
+    name: 'Yovan Hirales',
+    role: 'PhD Student',
+    group: 'PhD Students',
+    photo: '/images/people/yovan-hirales.png',
+    bio: `TEXT HERE`,
+    interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
+    links: {
+      email: 'apatel@unr.edu',
+      website: '',
+      scholar: '',
+      github: 'https://github.com',
+      linkedin: '',
+    },
+    publications: [
+      {
+        title: 'Task-Parameterized Skill Learning from a Single Demonstration',
+        authors: 'A. Patel, J. Smith',
+        venue: 'CoRL 2024 Workshop',
+        pdfUrl: '#',
+        arxivUrl: null,
+      },
+    ],
+    projects: [
+      { name: 'RoboHydra' },
+    ],
+  }
 ]
 
 // Look up person by slug from the URL
