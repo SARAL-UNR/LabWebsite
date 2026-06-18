@@ -1,15 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import HomePage from '@/pages/HomePage.vue'
 import PublicationsPage from '@/pages/PublicationsPage.vue'
-import HelloWorld from '@/pages/HelloWorld.vue'
-import ProjectsPage from '@/pages/ProjectsPage.vue'
+import ResearchPage from '@/pages/ResearchPage.vue'
 import PeoplePage from '@/pages/PeoplePage.vue'
 import FundingPage from '@/pages/FundingPage.vue'
+import OutreachPage from '@/pages/OutreachPage.vue'
+import TeachingPage from '@/pages/TeachingPage.vue'
+import IndividualPage from '@/pages/IndividualPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HelloWorld,
+    component: HomePage,
   },
   {
     path: '/publications',
@@ -19,7 +22,7 @@ const routes = [
   {
     path: '/projects',
     name: 'projects',
-    component: ProjectsPage,
+    component: ResearchPage,
   },
   {
     path: '/people',
@@ -30,8 +33,22 @@ const routes = [
     path: '/funding',
     name: 'funding',
     component: FundingPage,
+  },
+  {
+    path: '/outreach',
+    name: 'outreach',
+    component: OutreachPage,
+  },
+  {
+    path: '/teaching',
+    name: 'teaching',
+    component: TeachingPage,
+  },
+  {
+    path: '/people/:slug',
+    name: 'person',
+    component: IndividualPage,
   }
-  
 ]
 
 const router = createRouter({

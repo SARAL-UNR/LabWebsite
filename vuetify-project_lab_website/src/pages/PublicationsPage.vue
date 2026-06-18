@@ -1,5 +1,4 @@
 <template>
-<AppLayout>
   <v-app :theme="theme">
 
 
@@ -102,12 +101,10 @@
     </v-main>
 
   </v-app>
-  </AppLayout>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
-import AppLayout from '@/components/AppLayout.vue'
 
 const theme = ref('light')
 

@@ -1,94 +1,92 @@
 <template>
-  <AppLayout>
-    <v-container max-width="900" class="py-12">
+  <v-container max-width="900" class="py-12">
 
-      <!-- Page Header -->
-      <div class="mb-10">
-        <h1 class="page-title mb-2">Funding</h1>
-        <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-          Funding sources for the SARAL lab.
-        </p>
+    <!-- Page Header -->
+    <div class="mb-10">
+      <h1 class="page-title mb-2">Funding</h1>
+      <p class="text-medium-emphasis" style="font-size: 1.05rem;">
+        Funding sources for the SARAL lab.
+      </p>
+    </div>
+
+    <!-- Current Funding Section -->
+    <div v-if="currentFunding.length > 0" class="mb-10">
+      <div class="d-flex align-center mb-4">
+        <span class="year-label mr-4">Current Funding</span>
+        <v-divider />
       </div>
+      <div class="d-flex flex-column gap-3">
+        <v-card v-for="fund in currentFunding" :key="fund.id" class="funding-card" flat border>
+          <v-card-text class="pa-4">
+            <div class="d-flex align-center gap-4">
 
-      <!-- Current Funding Section -->
-      <div v-if="currentFunding.length > 0" class="mb-10">
-        <div class="d-flex align-center mb-4">
-          <span class="year-label mr-4">Current Funding</span>
-          <v-divider />
-        </div>
-        <div class="d-flex flex-column gap-3">
-          <v-card v-for="fund in currentFunding" :key="fund.id" class="funding-card" flat border>
-            <v-card-text class="pa-4">
-              <div class="d-flex align-center gap-4">
-
-                <!-- Logo -->
-                <div class="funding-logo-wrapper flex-shrink-0">
-                  <img
-                    v-if="fund.logo"
-                    :src="fund.logo"
-                    :alt="fund.agency"
-                    class="funding-logo"
-                  />
-                  <!-- Fallback if no logo -->
-                  <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                    <v-icon size="28" color="primary">mdi-currency-usd</v-icon>
-                  </div>
+              <!-- Logo -->
+              <div class="funding-logo-wrapper flex-shrink-0">
+                <img
+                  v-if="fund.logo"
+                  :src="fund.logo"
+                  :alt="fund.agency"
+                  class="funding-logo"
+                />
+                <!-- Fallback if no logo -->
+                <div v-else class="funding-logo-fallback d-flex align-center justify-center">
+                  <v-icon size="28" color="primary">mdi-currency-usd</v-icon>
                 </div>
-
-                <!-- Text -->
-                <div class="flex-grow-1">
-                  <div class="funding-agency">{{ fund.agency }}</div>
-                  <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
-                  <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                  <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
-                </div>
-
               </div>
-            </v-card-text>
-          </v-card>
-        </div>
-      </div>
 
-      <!-- Previous Funding Section -->
-      <div v-if="previousFunding.length > 0" class="mb-10">
-        <div class="d-flex align-center mb-4">
-          <span class="year-label mr-4">Previous Funding</span>
-          <v-divider />
-        </div>
-        <div class="d-flex flex-column gap-3">
-          <v-card v-for="fund in previousFunding" :key="fund.id" class="funding-card" flat border>
-            <v-card-text class="pa-4">
-              <div class="d-flex align-center gap-4">
-
-                <!-- Logo -->
-                <div class="funding-logo-wrapper flex-shrink-0">
-                  <img
-                    v-if="fund.logo"
-                    :src="fund.logo"
-                    :alt="fund.agency"
-                    class="funding-logo"
-                  />
-                  <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                    <v-icon size="28" color="error">mdi-currency-usd</v-icon>
-                  </div>
-                </div>
-
-                <!-- Text -->
-                <div class="flex-grow-1">
-                  <div class="funding-agency">{{ fund.agency }}</div>
-                  <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
-                  <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                  <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
-                </div>
-
+              <!-- Text -->
+              <div class="flex-grow-1">
+                <div class="funding-agency">{{ fund.agency }}</div>
+                <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
+                <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
+                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
               </div>
-            </v-card-text>
-          </v-card>
-        </div>
-      </div>
 
-    </v-container>
-  </AppLayout>
+            </div>
+          </v-card-text>
+        </v-card>
+      </div>
+    </div>
+
+    <!-- Previous Funding Section -->
+    <div v-if="previousFunding.length > 0" class="mb-10">
+      <div class="d-flex align-center mb-4">
+        <span class="year-label mr-4">Previous Funding</span>
+        <v-divider />
+      </div>
+      <div class="d-flex flex-column gap-3">
+        <v-card v-for="fund in previousFunding" :key="fund.id" class="funding-card" flat border>
+          <v-card-text class="pa-4">
+            <div class="d-flex align-center gap-4">
+
+              <!-- Logo -->
+              <div class="funding-logo-wrapper flex-shrink-0">
+                <img
+                  v-if="fund.logo"
+                  :src="fund.logo"
+                  :alt="fund.agency"
+                  class="funding-logo"
+                />
+                <div v-else class="funding-logo-fallback d-flex align-center justify-center">
+                  <v-icon size="28" color="error">mdi-currency-usd</v-icon>
+                </div>
+              </div>
+
+              <!-- Text -->
+              <div class="flex-grow-1">
+                <div class="funding-agency">{{ fund.agency }}</div>
+                <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
+                <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
+                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
+              </div>
+
+            </div>
+          </v-card-text>
+        </v-card>
+      </div>
+    </div>
+
+  </v-container>
 </template>
 
 <script setup>

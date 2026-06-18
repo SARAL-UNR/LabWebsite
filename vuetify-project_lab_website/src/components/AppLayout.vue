@@ -1,84 +1,92 @@
 <template>
   <v-app :theme="theme">
-    <v-app-bar flat border="b" height="64" color="primary" class="px-6">
-        
-      <!-- Logo on the far left -->
-      <template v-slot:prepend>
-        <v-btn variant="text" href="https://www.unr.edu" target="_blank" class="pa-0" min-width="0">
-          <img src="/images/unr_logo.png" alt="UNR Logo" height="36" style="display: block;" />
-        </v-btn>
-      </template>
 
-      <!-- Site name -->
-      <v-app-bar-title>
-        <v-btn variant="text" class="nav-btn" :to="{ name: 'home' }">UNR SARAL</v-btn>
-      </v-app-bar-title>
+    <!-- Left Sidebar Navigation -->
+    <v-navigation-drawer permanent color="primary" width="220">
 
-      <template v-slot:append>
-        <div class="nav-items d-flex align-center">
-          <v-btn variant="text" class="nav-btn" :to="{ name: 'publications' }">Publications</v-btn>
-          <v-btn variant="text" class="nav-btn" :to="{ name: 'projects' }">Projects</v-btn>
-          <v-btn variant="text" class="nav-btn" :to="{ name: 'people' }">People</v-btn>
-          <v-btn variant="text" class="nav-btn" :to="{ name: 'funding' }">Funding</v-btn>
+      <div class="d-flex flex-column fill-height">
+
+        <!-- Logo -->
+        <div class="pa-0 pt-6 d-flex justify-center">
+          <img src="/images/unr_logo.png" alt="UNR Logo" height="48" style="display: block;" />
         </div>
-      </template>
-    </v-app-bar>
 
-    <v-main>
-      <slot />  <!-- page content goes here -->
+        <!-- Site Name -->
+        <h1 class="px-4 pb-0 text-center">UNR SARAL</h1>
+
+        <v-divider class="opacity-30 mb-0" />
+
+        <!-- Nav Links -->
+        <v-list nav density="compact" class="px-2">
+          <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-1" />
+          <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-1" />
+          <v-list-item :to="{ name: 'projects' }" title="Projects" rounded="lg" class="nav-item mb-1" />
+          <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-1" />
+          <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-1" />
+          <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-1" />
+          <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-1" />
+        </v-list>
+
+        <v-spacer />
+
+        <!-- Footer info at bottom of sidebar -->
+        <div class="pa-4">
+          <v-divider class="opacity-30 mb-3" />
+          <div class="sidebar-footer-text mb-2">
+            University of Nevada, Reno<br />
+            Dept. of Computer Science and Engineering
+          </div>
+          <div class="sidebar-footer-text mb-1">
+            <a href="https://www.unr.edu" target="_blank" class="footer-link">unr.edu</a>
+          </div>
+          <div class="sidebar-footer-text">
+            <a href="https://www.unr.edu/cse" target="_blank" class="footer-link">unr.edu/cse</a>
+          </div>
+        </div>
+
+      </div>
+    </v-navigation-drawer>
+
+    <!-- Page Content with slide transition -->
+    <v-main style="overflow: hidden;">
+      <router-view v-slot="{ Component }">
+        <Transition :name="transitionName" mode="out-in">
+          <component :is="Component" :key="$route.name" />
+        </Transition>
+      </router-view>
     </v-main>
 
-    <v-footer border="t" color="primary" class="px-6 py-4">
-      <v-container max-width="900" class="pa-0">
-        <div class="d-flex justify-space-between align-center flex-wrap gap-4">
-          
-          <!-- Left: Lab name and address -->
-          <div>
-            <div class="footer-title">SARAL — Systems and Algorithms for Robot Autonomy Lab</div>
-            <div class="footer-text mt-1">University of Nevada, Reno · Department of Computer Science and Engineering</div>
-            <div class="footer-text">1664 N Virginia St, Reno, NV 89557</div>
-          </div>
-
-          <!-- Right: Contact -->
-          <div class="text-right">
-            <div class="footer-title">
-              Websites
-            </div>
-            <div class="footer-text">
-              <a href="https://www.unr.edu" target="_blank" class="footer-link">University of Nevada, Reno</a>
-            </div>
-            <div class="footer-text mt-1">
-              <a href="https://www.unr.edu/cse" target="_blank" class="footer-link">Computer Science and Engineering Department</a>
-            </div>
-          </div>
-
-        </div>
-
-        <v-divider class="my-3 opacity-30" />
-      </v-container>
-    </v-footer>
   </v-app>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
 const theme = ref('light')
+const route = useRoute()
+const transitionName = ref('slide-left')
+
+// Must match your nav order top to bottom
+const pageOrder = ['home', 'publications', 'projects', 'people', 'funding']
+
+watch(route, (to, from) => {
+  const toIndex   = pageOrder.indexOf(to.name)
+  const fromIndex = pageOrder.indexOf(from.name)
+  transitionName.value = toIndex >= fromIndex ? 'slide-left' : 'slide-right'
+})
 </script>
 
 <style scoped>
-.nav-btn {
+.nav-item {
   font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-.footer-title {
-  font-size: 0.875rem;
-  font-weight: 600;
 }
 
-.footer-text {
-  font-size: 0.8rem;
+.sidebar-footer-text {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  opacity: 0.75;
 }
 
 .footer-link {
@@ -89,4 +97,24 @@ const theme = ref('light')
 .footer-link:hover {
   text-decoration: underline;
 }
+
+/* ── Slide transitions ───────────────────────────────────────────────────── */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: transform 350ms ease, opacity 350ms ease;
+  position: absolute;
+  width: 100%;
+}
+
+.slide-left-enter-from  { transform: translateX(100%);  opacity: 0; }
+.slide-left-enter-to    { transform: translateX(0);      opacity: 1; }
+.slide-left-leave-from  { transform: translateX(0);      opacity: 1; }
+.slide-left-leave-to    { transform: translateX(-100%);  opacity: 0; }
+
+.slide-right-enter-from { transform: translateX(-100%); opacity: 0; }
+.slide-right-enter-to   { transform: translateX(0);     opacity: 1; }
+.slide-right-leave-from { transform: translateX(0);     opacity: 1; }
+.slide-right-leave-to   { transform: translateX(100%);  opacity: 0; }
 </style>

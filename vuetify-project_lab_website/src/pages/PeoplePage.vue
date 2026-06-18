@@ -1,85 +1,70 @@
 <template>
-  <AppLayout>
-    <v-app :theme="theme">
+  <v-container max-width="900" class="py-12">
 
-        <v-main>
-        <v-container max-width="900" class="py-12">
+    <!-- Page Header -->
+    <div class="mb-12">
+      <h1 class="page-title mb-2">People</h1>
+      <p class="text-medium-emphasis" style="font-size: 1.05rem;">
+        The researchers and students behind SARAL.
+      </p>
+    </div>
 
-            <!-- Page Header -->
-            <div class="mb-12">
-            <h1 class="page-title mb-2">People</h1>
-            <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-                The researchers and students behind SARAL.
-            </p>
+    <!-- Group Sections -->
+    <div v-for="group in groups" :key="group.description" class="mb-12">
+
+      <!-- Group Heading -->
+      <div class="group-heading d-flex align-center mb-6">
+        <span class="group-label mr-4">{{ group.description }}</span>
+        <v-divider />
+      </div>
+
+      <!-- People Grid -->
+      <v-row>
+        <v-col
+          v-for="person in group.members"
+          :key="person.id"
+          cols="6"
+          sm="4"
+          md="3"
+        >
+          <div
+            class="person-card"
+            :class="{ 'person-card--linked': person.slug }"
+            @click="person.slug && $router.push({ name: 'person', params: { slug: person.slug } })"
+          >
+            <!-- Portrait -->
+            <div class="portrait-wrapper mb-3">
+              <img
+                v-if="person.photo"
+                :src="person.photo"
+                :alt="person.name"
+                class="portrait-img"
+              />
+              <div v-else class="portrait-fallback d-flex align-center justify-center">
+                <span class="portrait-initials">{{ initials(person.name) }}</span>
+              </div>
             </div>
 
-            <!-- description Groups -->
-            <div v-for="group in groups" :key="group.description" class="mb-12">
+            <div class="person-name">{{ person.name }}</div>
+            <div class="person-years text-medium-emphasis">{{ person.years }}</div>
+            <div class="person-description text-medium-emphasis">{{ person.description }}</div>
+          </div>
+        </v-col>
+      </v-row>
 
-            <!-- Group Heading -->
-            <div class="group-heading d-flex align-center mb-6">
-                <span class="group-label mr-4">{{ group.description }}</span>
-                <v-divider />
-            </div>
+    </div>
 
-            <!-- People Grid -->
-            <v-row>
-                <v-col
-                v-for="person in group.members"
-                :key="person.id"
-                cols="6"
-                sm="4"
-                md="3"
-                >
-                <div class="person-card">
-
-                    <!-- Portrait -->
-                    <div class="portrait-wrapper mb-3">
-                    <img
-                        v-if="person.photo"
-                        :src="person.photo"
-                        :alt="person.name"
-                        class="portrait-img"
-                    />
-                    <!-- Fallback initials -->
-                    <div v-else class="portrait-fallback d-flex align-center justify-center">
-                        <span class="portrait-initials">{{ initials(person.name) }}</span>
-                    </div>
-                    </div>
-
-                    <div class="person-name">{{ person.name }}</div>
-                    <div class="person-years text-medium-emphasis">{{ person.years }}</div>
-                    <div class="person-description text-medium-emphasis">{{ person.description }}</div>
-                </div>
-                </v-col>
-            </v-row>
-
-            </div>
-
-        </v-container>
-        </v-main>
-
-    </v-app>
-  </AppLayout>
+  </v-container>
 </template>
-
-
-
 
 <script setup>
 import { ref, computed } from 'vue'
-import AppLayout from '@/components/AppLayout.vue'
 
-const theme = ref('light')
-
-// ── People data ───────────────────────────────────────────────────────────────
-// Place portrait images in /public/images/people/ and reference them as shown.
-// e.g. a file at public/images/people/jane-smith.png → '/images/people/jane-smith.png'
-// Leave photo as '' to show the initials fallback instead.
 const people = ref([
   // Lab Director
   {
     id: 1,
+    slug: 'parikshit-maini',
     name: 'Dr. Parikshit Maini',
     description: 'Principal Investigator',
     group: 'Lab Director',
@@ -90,6 +75,7 @@ const people = ref([
   // PhD Students
   {
     id: 2,
+    slug: 'arif-ahmed',
     name: 'Arif Ahmed',
     description: 'PhD Student',
     group: 'PhD Students',
@@ -98,71 +84,85 @@ const people = ref([
   },
   {
     id: 3,
+    slug: 'nathaniel-rose',
     name: 'Nathaniel Rose',
     description: 'PhD Student',
     group: 'PhD Students',
     years: '2018 - Present',
     photo: '/images/people/nathaniel-rose.png',
   },
+
+  // Master's Students
   {
     id: 4,
+    slug: 'hannah-chung',
     name: 'Hannah Chung',
-    description: 'Master\'s Students',
-    group: 'Master\'s Students',
+    description: "Master's Student",
+    group: "Master's Students",
     years: '2018 - Present',
     photo: '/images/people/hannah-chung.png',
   },
   {
     id: 5,
+    slug: 'emanuel-gutierrez-cornejo',
     name: 'Emanuel Gutierrez-Cornejo',
-    description: 'Master\'s Students',
-    group: 'Master\'s Students',
+    description: "Master's Student",
+    group: "Master's Students",
     years: '2018 - Present',
     photo: '/images/people/emanuel-gutierrez-cornejo.png',
   },
   {
     id: 6,
+    slug: 'jairo-cadena-mendez',
     name: 'Jairo Cadena-Mendez',
-    description: 'Master\'s Students',
-    group: 'Master\'s Students',
+    description: "Master's Student",
+    group: "Master's Students",
     years: '2025 - Present',
     photo: '/images/people/jairo-cadena-mendez.png',
   },
   {
     id: 7,
+    slug: 'dominic-palmieri',
     name: 'Dominic Palmieri',
-    description: 'Master\'s Students',
-    group: 'Master\'s Students',
+    description: "Master's Student",
+    group: "Master's Students",
     years: '2026 - Present',
     photo: '/images/people/dominic-palmieri.png',
   },
+
+  // Undergraduates
   {
-  id: 8,
-  name: 'Yovan Hirales',
-  description: 'Master\'s Students',
-  group: 'Undergraduates',
-  years: '2026 - Present',
-  photo: '/images/people/yovan-hirales.png',
+    id: 8,
+    slug: 'yovan-hirales',
+    name: 'Yovan Hirales',
+    description: 'Undergraduate',
+    group: 'Undergraduates',
+    years: '2026 - Present',
+    photo: '/images/people/yovan-hirales.png',
   },
 
-  // Alumni
+  // Alumni — no slug needed, no individual page
   {
     id: 9,
+    slug: '',
     name: 'David Park',
     description: 'PhD Alumni → Google DeepMind',
     group: 'Alumni',
+    years: '',
     photo: '/images/people/david-park.png',
   },
   {
     id: 10,
+    slug: '',
     name: 'Priya Nair',
     description: 'MS Alumni → Boston Dynamics',
     group: 'Alumni',
+    years: '',
     photo: '/images/people/priya-nair.png',
   },
 ])
 
-const groupOrder = ['Lab Director', 'PhD Students', 'Master\'s Students', 'Undergraduates', 'Alumni']
+const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Alumni"]
 
 const groups = computed(() =>
   groupOrder
@@ -174,24 +174,11 @@ const groups = computed(() =>
 )
 
 function initials(name) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .map(n => n[0])
-    .slice(0, 2)
-    .join('')
-    .toUpperCase()
+  return name.split(' ').filter(Boolean).map(n => n[0]).slice(0, 2).join('').toUpperCase()
 }
 </script>
 
 <style scoped>
-.nav-btn {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 .page-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
@@ -212,7 +199,16 @@ function initials(name) {
   flex-direction: column;
 }
 
-/* Rectangular portrait */
+/* Show pointer and hover effect only for people with a slug */
+.person-card--linked {
+  cursor: pointer;
+}
+
+.person-card--linked .portrait-wrapper:hover {
+  border-color: rgba(var(--v-theme-primary), 0.6);
+  transform: translateY(-3px);
+}
+
 .portrait-wrapper {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -248,6 +244,11 @@ function initials(name) {
   font-weight: 600;
   line-height: 1.3;
   margin-bottom: 2px;
+}
+
+.person-years {
+  font-size: 0.775rem;
+  line-height: 1.4;
 }
 
 .person-description {
