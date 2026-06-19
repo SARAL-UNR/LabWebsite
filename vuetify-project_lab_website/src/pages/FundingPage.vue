@@ -39,7 +39,6 @@
                 <div class="funding-agency">{{ fund.agency }}</div>
                 <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
                 <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
               </div>
 
             </div>
@@ -77,7 +76,6 @@
                 <div class="funding-agency">{{ fund.agency }}</div>
                 <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
                 <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
               </div>
 
             </div>
@@ -100,28 +98,25 @@ const funding = ref([
   {
     id: 1,
     type: 'Current',
-    agency: 'National Science Foundation',
-    title: 'Collaborative Research: Program Title',
-    amount: '$500,000 (2024-2027)',
-    principalInvestigator: 'Dr. Name',
+    agency: 'Agency here',
+    title: 'Title here',
+    amount: '<- Example photo. Amount with timeframe here',
     logo: '/images/funding/testfd1.jpeg',
   },
   {
     id: 2,
     type: 'Current',
-    agency: 'NSF - IIS',
-    title: 'Award Title',
-    amount: '$250,000 (2025-2028)',
-    principalInvestigator: 'Dr. Name',
+    agency: 'Agency here',
+    title: 'Title here',
+    amount: 'Amount with timeframe here',
     logo: '/images/funding/nsf.png',
   },
   {
     id: 3,
     type: 'Previous',
-    agency: 'Department of Energy',
-    title: 'Previous Research Project',
-    amount: '$350,000 (2021-2024)',
-    principalInvestigator: 'Dr. Name',
+    agency: 'Agency here',
+    title: 'Title here',
+    amount: 'Amount with timeframe here',
     logo: '/images/funding/doe.png',
   },
 ])
@@ -161,7 +156,6 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
   height: 80px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
   background-color: #fff;
   display: flex;
   align-items: center;

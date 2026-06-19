@@ -5,85 +5,93 @@
     <div class="mb-10">
       <h1 class="page-title mb-2">Outreach</h1>
       <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-        Funding sources for the SARAL lab.
+        Community engagement and outreach events from the SARAL lab.
       </p>
     </div>
 
-    <!-- Current Funding Section -->
-    <div v-if="currentFunding.length > 0" class="mb-10">
+    <!-- Upcoming Events -->
+    <div v-if="upcomingEvents.length > 0" class="mb-10">
       <div class="d-flex align-center mb-4">
-        <span class="year-label mr-4">Current Funding</span>
+        <span class="section-label mr-4">Upcoming Events</span>
         <v-divider />
       </div>
-      <div class="d-flex flex-column gap-3">
-        <v-card v-for="fund in currentFunding" :key="fund.id" class="funding-card" flat border>
-          <v-card-text class="pa-4">
-            <div class="d-flex align-center gap-4">
 
-              <!-- Logo -->
-              <div class="funding-logo-wrapper flex-shrink-0">
-                <img
-                  v-if="fund.logo"
-                  :src="fund.logo"
-                  :alt="fund.agency"
-                  class="funding-logo"
-                />
-                <!-- Fallback if no logo -->
-                <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                  <v-icon size="28" color="primary">mdi-currency-usd</v-icon>
-                </div>
-              </div>
+      <v-card
+        v-for="event in upcomingEvents"
+        :key="event.id"
+        flat border
+        class="event-card mb-3 pa-5"
+      >
+        <div class="d-flex align-start flex-wrap" style="gap: 8px;">
 
-              <!-- Text -->
-              <div class="flex-grow-1">
-                <div class="funding-agency">{{ fund.agency }}</div>
-                <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
-                <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
-              </div>
+          <!-- Date badge -->
+          <div class="event-date-badge flex-shrink-0 text-center">
+            <div class="event-month">{{ month(event.date) }}</div>
+            <div class="event-day">{{ day(event.date) }}</div>
+            <div class="event-year">{{ year(event.date) }}</div>
+          </div>
 
+          <!-- Content -->
+          <div class="flex-grow-1">
+            <div class="event-name mb-1">{{ event.name }}</div>
+            <div class="event-location text-medium-emphasis mb-2">
+              <v-icon size="14" class="mr-1">mdi-map-marker-outline</v-icon>
+              {{ event.location }}
             </div>
-          </v-card-text>
-        </v-card>
-      </div>
+            <div v-if="event.description" class="event-description text-medium-emphasis">
+              {{ event.description }}
+            </div>
+          </div>
+
+        </div>
+      </v-card>
     </div>
 
-    <!-- Previous Funding Section -->
-    <div v-if="previousFunding.length > 0" class="mb-10">
+    <!-- No upcoming events fallback -->
+    <div v-else class="mb-10">
       <div class="d-flex align-center mb-4">
-        <span class="year-label mr-4">Previous Funding</span>
+        <span class="section-label mr-4">Upcoming Events</span>
         <v-divider />
       </div>
-      <div class="d-flex flex-column gap-3">
-        <v-card v-for="fund in previousFunding" :key="fund.id" class="funding-card" flat border>
-          <v-card-text class="pa-4">
-            <div class="d-flex align-center gap-4">
+      <p class="text-medium-emphasis" style="font-size: 0.9rem;">No upcoming events at this time. Check back soon!</p>
+    </div>
 
-              <!-- Logo -->
-              <div class="funding-logo-wrapper flex-shrink-0">
-                <img
-                  v-if="fund.logo"
-                  :src="fund.logo"
-                  :alt="fund.agency"
-                  class="funding-logo"
-                />
-                <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                  <v-icon size="28" color="error">mdi-currency-usd</v-icon>
-                </div>
-              </div>
-
-              <!-- Text -->
-              <div class="flex-grow-1">
-                <div class="funding-agency">{{ fund.agency }}</div>
-                <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
-                <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
-              </div>
-
-            </div>
-          </v-card-text>
-        </v-card>
+    <!-- Past Events -->
+    <div v-if="pastEvents.length > 0" class="mb-10">
+      <div class="d-flex align-center mb-4">
+        <span class="section-label mr-4">Past Events</span>
+        <v-divider />
       </div>
+
+      <v-card
+        v-for="event in pastEvents"
+        :key="event.id"
+        flat border
+        class="event-card event-card--past mb-3 pa-5"
+      >
+        <div class="d-flex align-start gap-4 flex-wrap">
+
+          <!-- Date badge -->
+          <div class="event-date-badge event-date-badge--past flex-shrink-0 text-center">
+            <div class="event-month">{{ month(event.date) }}</div>
+            <div class="event-day">{{ day(event.date) }}</div>
+            <div class="event-year">{{ year(event.date) }}</div>
+          </div>
+
+          <!-- Content -->
+          <div class="flex-grow-1">
+            <div class="event-name mb-1">{{ event.name }}</div>
+            <div class="event-location text-medium-emphasis mb-2">
+              <v-icon size="14" class="mr-1">mdi-map-marker-outline</v-icon>
+              {{ event.location }}
+            </div>
+            <div v-if="event.description" class="event-description text-medium-emphasis">
+              {{ event.description }}
+            </div>
+          </div>
+
+        </div>
+      </v-card>
     </div>
 
   </v-container>
@@ -91,43 +99,75 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import AppLayout from '@/components/AppLayout.vue'
 
-// ── Funding data ──────────────────────────────────────────────────────────────
-// Add a logo field pointing to an image in public/images/funding/
-// Leave logo as '' to show the fallback icon instead.
-const funding = ref([
+// ── Event data ────────────────────────────────────────────────────────────────
+// type: 'upcoming' | 'past'
+// date: 'YYYY-MM-DD' format
+const events = ref([
   {
     id: 1,
-    type: 'Current',
-    agency: 'National Science Foundation',
-    title: 'Collaborative Research: Program Title',
-    amount: '$500,000 (2024-2027)',
-    principalInvestigator: 'Dr. Name',
-    logo: '/images/funding/testfd1.jpeg',
+    type: 'upcoming',
+    name: 'STEM Day at UNR',
+    description: 'SARAL lab will be hosting a robotics demonstration for local K-12 students as part of UNR\'s annual STEM Day.',
+    location: 'University of Nevada, Reno — Engineering Building',
+    date: '2026-09-15',
   },
   {
     id: 2,
-    type: 'Current',
-    agency: 'NSF - IIS',
-    title: 'Award Title',
-    amount: '$250,000 (2025-2028)',
-    principalInvestigator: 'Dr. Name',
-    logo: '/images/funding/nsf.png',
+    type: 'upcoming',
+    name: 'Reno Robotics Expo',
+    description: 'Come see our latest robots in action at the annual Reno Robotics Expo, open to the public.',
+    location: 'Reno-Sparks Convention Center, Reno, NV',
+    date: '2026-10-03',
   },
   {
     id: 3,
-    type: 'Previous',
-    agency: 'Department of Energy',
-    title: 'Previous Research Project',
-    amount: '$350,000 (2021-2024)',
-    principalInvestigator: 'Dr. Name',
-    logo: '/images/funding/doe.png',
+    type: 'past',
+    name: 'Engineering Open House',
+    description: 'The SARAL lab showcased the MoistureMapper and RoboHydra systems to prospective students and families.',
+    location: 'University of Nevada, Reno',
+    date: '2026-04-12',
+  },
+  {
+    id: 4,
+    type: 'past',
+    name: 'Nevada AgTech Summit',
+    description: 'Dr. Maini presented research on autonomous agricultural robots and precision irrigation strategies.',
+    location: 'Sparks, NV',
+    date: '2025-11-08',
+  },
+  {
+    id: 5,
+    type: 'past',
+    name: 'Girls Who Code Workshop',
+    description: 'Lab members mentored high school students in an introductory robotics and coding workshop.',
+    location: 'Washoe County Library, Reno, NV',
+    date: '2025-08-22',
   },
 ])
 
-const currentFunding = computed(() => funding.value.filter(f => f.type === 'Current'))
-const previousFunding = computed(() => funding.value.filter(f => f.type === 'Previous'))
+const upcomingEvents = computed(() =>
+  events.value
+    .filter(e => e.type === 'upcoming')
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+)
+
+const pastEvents = computed(() =>
+  events.value
+    .filter(e => e.type === 'past')
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+)
+
+// Date helpers
+function month(dateStr) {
+  return new Date(dateStr + 'T00:00:00').toLocaleString('default', { month: 'short' }).toUpperCase()
+}
+function day(dateStr) {
+  return new Date(dateStr + 'T00:00:00').getDate()
+}
+function year(dateStr) {
+  return new Date(dateStr + 'T00:00:00').getFullYear()
+}
 </script>
 
 <style scoped>
@@ -138,7 +178,7 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
   line-height: 1.1;
 }
 
-.year-label {
+.section-label {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -146,63 +186,66 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
   color: rgb(var(--v-theme-primary));
 }
 
-.funding-card {
+.event-card {
   border-radius: 10px !important;
   transition: box-shadow 0.15s ease;
 }
 
-.funding-card:hover {
+.event-card:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Logo container — fixed size so all cards align consistently */
-.funding-logo-wrapper {
-  width: 80px;
-  height: 80px;
+.event-card--past {
+  opacity: 0.8;
+}
+
+/* Date badge */
+.event-date-badge {
+  width: 60px;
+  background-color: rgb(var(--v-theme-primary));
   border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6px 4px;
+  color: white;
 }
 
-.funding-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 8px;
+.event-date-badge--past {
+  background-color: rgba(var(--v-theme-on-surface), 0.15);
+  color: rgba(var(--v-theme-on-surface), 0.6);
 }
 
-.funding-logo-fallback {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(var(--v-theme-primary), 0.08);
+.event-month {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
 }
 
-.funding-agency {
+.event-day {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.event-year {
+  font-size: 0.65rem;
+  font-weight: 500;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.event-name {
   font-size: 0.975rem;
   font-weight: 600;
   line-height: 1.4;
-  margin-bottom: 0.25rem;
 }
 
-.funding-title {
+.event-location {
+  font-size: 0.825rem;
+  line-height: 1.4;
+}
+
+.event-description {
   font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.5;
-  margin-bottom: 0.25rem;
-}
-
-.funding-amount {
-  font-size: 0.8rem;
-  line-height: 1.5;
-  margin-bottom: 0.2rem;
-}
-
-.funding-pi {
-  font-size: 0.8rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 </style>
