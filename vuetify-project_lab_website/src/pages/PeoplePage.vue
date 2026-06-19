@@ -97,8 +97,8 @@ const people = ref([
   // Master's Students
   {
     id: 4,
-    slug: 'hannah-chung',
-    name: 'Hannah Chung',
+    slug: 'hannah-chuang',
+    name: 'Hannah Chuang',
     description: "Master's Student",
     group: "Master's Students",
     years: '2018 - Present',
@@ -184,7 +184,7 @@ function handleClick(person) {
   if (person.slug.startsWith('http')) {
     window.open(person.slug, '_blank')
   } else {
-    router.push({ name: 'person', params: { slug: person.slug } })
+    router.push({ name: 'people-individual', params: { slug: person.slug } })
   }
 }
 </script>

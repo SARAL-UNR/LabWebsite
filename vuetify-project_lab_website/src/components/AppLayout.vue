@@ -7,30 +7,30 @@
       <div class="d-flex flex-column fill-height">
 
         <!-- Logo -->
-        <div class="pa-0 pt-6 d-flex justify-center">
+        <div class="pa-0 pt-6 d-flex justify-center flex-shrink-0">
           <img src="/images/unr_logo.png" alt="UNR Logo" height="48" style="display: block;" />
         </div>
 
         <!-- Site Name -->
-        <h1 class="px-4 pb-0 text-center">UNR SARAL</h1>
+        <h1 class="px-4 pb-0 text-center flex-shrink-0">UNR SARAL</h1>
 
-        <v-divider class="opacity-30 mb-0" />
+        <v-divider class="opacity-30 mb-0 flex-shrink-0" />
 
-        <!-- Nav Links -->
-        <v-list nav density="compact" class="px-2">
-          <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-1" />
-          <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-1" />
-          <v-list-item :to="{ name: 'projects' }" title="Projects" rounded="lg" class="nav-item mb-1" />
-          <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-1" />
-          <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-1" />
-          <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-1" />
-          <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-1" />
-        </v-list>
+        <!-- Nav Links — scrollable if content overflows -->
+        <div class="nav-scroll-area">
+          <v-list nav density="compact" class="px-2">
+            <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'research' }" title="Research" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-1" />
+          </v-list>
+        </div>
 
-        <v-spacer />
-
-        <!-- Footer info at bottom of sidebar -->
-        <div class="pa-4">
+        <!-- Footer info at bottom of sidebar — always visible -->
+        <div class="pa-4 flex-shrink-0">
           <v-divider class="opacity-30 mb-3" />
           <div class="sidebar-footer-text mb-2">
             University of Nevada, Reno<br />
@@ -67,8 +67,7 @@ const theme = ref('light')
 const route = useRoute()
 const transitionName = ref('slide-left')
 
-// Must match your nav order top to bottom
-const pageOrder = ['home', 'publications', 'projects', 'people', 'funding']
+const pageOrder = ['home', 'publications', 'research', 'research-individual', 'people', 'people-individual', 'funding', 'outreach', 'teaching']
 
 watch(route, (to, from) => {
   const toIndex   = pageOrder.indexOf(to.name)
@@ -81,6 +80,29 @@ watch(route, (to, from) => {
 .nav-item {
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+/* Takes up remaining space and scrolls if nav links overflow */
+.nav-scroll-area {
+  flex: 1 1 0;
+  overflow-y: auto;
+  min-height: 0;
+  /* Thin scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.nav-scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+
+.nav-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nav-scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
 }
 
 .sidebar-footer-text {

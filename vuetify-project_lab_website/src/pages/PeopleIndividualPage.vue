@@ -165,7 +165,7 @@
           <v-btn
             v-for="project in person.projects"
             :key="project.name"
-            :to="{ name: 'projects' }"
+            :to="{ name: 'research' }"
             variant="tonal"
             color="primary"
             size="small"
@@ -273,7 +273,7 @@ const people = [
     ],
   },
   {
-    slug: 'hannah-chung',
+    slug: 'hannah-chuang',
     name: 'Hannah Chung',
     role: 'PhD Student',
     group: 'PhD Students',

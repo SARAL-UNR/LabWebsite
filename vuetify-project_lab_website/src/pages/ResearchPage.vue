@@ -3,9 +3,9 @@
 
     <!-- Page Header -->
     <div class="mb-10">
-      <h1 class="page-title mb-2">Projects</h1>
+      <h1 class="page-title mb-2">Research</h1>
       <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-        Projects from the SARAL lab.
+        Research from the SARAL lab.
       </p>
     </div>
 
@@ -25,10 +25,15 @@
         flat
         border
         class="project-card mb-4 pa-5"
+        :class="{ 'project-card--linked': project.slug }"
         :ripple="false"
+        @click="handleClick(project)"
       >
-        <!-- Title -->
-        <div class="project-title mb-1">{{ project.title }}</div>
+        <!-- Title + arrow -->
+        <div class="d-flex align-center justify-space-between mb-1">
+          <div class="project-title">{{ project.title }}</div>
+          <v-icon v-if="project.slug" size="18" color="primary" class="ml-2">mdi-arrow-right</v-icon>
+        </div>
 
         <!-- People -->
         <div class="project-people mb-1">{{ project.people }}</div>
@@ -36,33 +41,19 @@
         <!-- Date -->
         <div class="project-date mb-3">{{ project.date }}</div>
 
-        <!-- Description -->
+        <!-- Description (truncated preview) -->
         <div v-if="project.description" class="project-description text-medium-emphasis mb-4">
-          {{ project.description }}
+          {{ truncate(project.description) }}
         </div>
 
-        <!-- Images -->
+        <!-- Preview image (first image only) -->
         <div v-if="project.images && project.images.length > 0">
-          <v-row dense>
-            <v-col
-              v-for="(img, i) in project.images"
-              :key="i"
-              :cols="project.images.length === 1 ? 12 : 6"
-            >
-              <v-img
-                :src="img.src"
-                rounded="lg"
-                class="project-img"
-              >
-                <!-- Caption overlay -->
-                <template v-if="img.caption" v-slot:default>
-                  <div class="img-caption d-flex align-end fill-height pa-3">
-                    <span class="caption-text">{{ img.caption }}</span>
-                  </div>
-                </template>
-              </v-img>
-            </v-col>
-          </v-row>
+          <v-img
+            :src="project.images[0].src"
+            rounded="lg"
+            max-height="220"
+            cover
+          />
         </div>
 
       </v-card>
@@ -73,76 +64,79 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-// ── Project data ──────────────────────────────────────────────────────────────
-// Each project supports:
-//   id, year, title, authors, description
-//   images: array of { src, caption } — caption is optional, set to '' to hide
-//   Drop image files in public/images/projects/ and reference them below.
+const router = useRouter()
+
 const projects = ref([
   {
     id: 1,
-    value: 'Current Projects',
+    slug: 'robohydra',
+    value: 'Current Research',
     title: 'RoboHydra',
     people: 'Dominic Palmieri, Emanuel Gutierrez-Cornejo',
     date: '2026 - Present',
-    description: 'Decription of the project here.',
+    description: 'Description of the project here.',
     images: [
       { src: '/images/projects/Hydra1.png', caption: 'RoboHydra' },
-      { src: '/images/projects/Hydra2.png'},
+      { src: '/images/projects/Hydra2.png', caption: '' },
     ],
   },
   {
     id: 3,
-    value: 'Current Projects',
-    title: 'Robotic Soil moisture Sensing (RSMS)',
+    slug: 'rsms',
+    value: 'Current Research',
+    title: 'Robotic Soil Moisture Sensing (RSMS)',
     people: 'Nathaniel Rose, Hannah Chung',
     date: 'DATES HERE',
-    description: `
-      The MoistureMapper is an autonomous robot that canmeasure soil moisture at points of interest of a farm plot. The goal is to build a comprehensive map of the soil moisture across the field`,
+    description: `The MoistureMapper is an autonomous robot that can measure soil moisture at points of interest of a farm plot. The goal is to build a comprehensive map of the soil moisture across the field.`,
     images: [
-      { src: '/images/projects/RSMS1.png'},
-      { src: '/images/projects/RSMS2.png'},
+      { src: '/images/projects/RSMS1.png', caption: '' },
+      { src: '/images/projects/RSMS2.png', caption: '' },
     ],
   },
   {
     id: 4,
-    value: 'Current Projects',
+    slug: 'stability-aware-navigation',
+    value: 'Current Research',
     title: 'Stability Aware Navigation',
     people: 'Emanuel Gutierrez-Cornejo, Arif Ahmed, Nathaniel Rose, Dominic Palmieri',
     date: 'DATES HERE',
-    description: 'The goal is to predict a robot stability score between 0 and 1. We do this by training a novel vision-based stability metric using count-circle-crossings (C3) score. The method is a data-based learning networktrained on C3 score to learn currentstability from IMU and velocity.',
+    description: 'The goal is to predict a robot stability score between 0 and 1. We do this by training a novel vision-based stability metric using count-circle-crossings (C3) score.',
     images: [
-      { src: '/images/projects/C31.png'},
-      { src: '/images/projects/C32.png'},
+      { src: '/images/projects/C31.png', caption: '' },
+      { src: '/images/projects/C32.png', caption: '' },
     ],
   },
   {
     id: 5,
-    value: 'Current Projects',
+    slug: 'plant-phenotyping-lai',
+    value: 'Current Research',
     title: 'Plant Phenotyping: Leaf Area Index (LAI)',
     people: '*Arif Ahmed',
     date: 'DATES HERE',
-    description: 'Mobile manipulator and UAV work together tophenotype crops for selecting better yielding irrigationstrategies.',
+    description: 'Mobile manipulator and UAV work together to phenotype crops for selecting better yielding irrigation strategies.',
     images: [
-      { src: '/images/projects/LAI1.png' },
-      { src: '/images/projects/LAI2.png' },
+      { src: '/images/projects/LAI1.png', caption: '' },
+      { src: '/images/projects/LAI2.png', caption: '' },
     ],
   },
   {
     id: 6,
-    value: 'Current Projects',
+    slug: 'robotics-ai-plant-breeding',
+    value: 'Current Research',
     title: 'Robotics and AI for Plant Breeding',
     people: '*Arif Ahmed, Jairo Cadena-Mendez, Yovan Hirales',
     date: 'DATES HERE',
-    description: `Drone based precision spraying of agrochemicals on a field-wide scale. Work with farmers and breeders to apply treatments to corn, sorghum, and onion crops`,
+    description: 'Drone based precision spraying of agrochemicals on a field-wide scale. Work with farmers and breeders to apply treatments to corn, sorghum, and onion crops.',
     images: [
-      { src: '/images/projects/Spray1.png' },
+      { src: '/images/projects/Spray1.png', caption: '' },
     ],
   },
   {
     id: 2,
-    value: 'Previous Projects',
+    slug: 'cowbot',
+    value: 'Previous Research',
     title: 'CowBot',
     people: 'Dr. Parikshit Maini',
     date: '2023 - 2025',
@@ -153,8 +147,6 @@ const projects = ref([
   },
 ])
 
-
-// Group by value
 const projectsByValue = computed(() => {
   const values = [...new Set(projects.value.map(p => p.value))].sort((a, b) => b - a)
   return values.map(value => ({
@@ -162,6 +154,17 @@ const projectsByValue = computed(() => {
     projects: projects.value.filter(p => p.value === value),
   }))
 })
+
+function handleClick(project) {
+  if (!project.slug) return
+  router.push({ name: 'research-individual', params: { slug: project.slug } })
+}
+
+// Show a short preview on the list card
+function truncate(text, max = 160) {
+  const trimmed = text.trim()
+  return trimmed.length > max ? trimmed.slice(0, max).trimEnd() + '…' : trimmed
+}
 </script>
 
 <style scoped>
@@ -185,8 +188,12 @@ const projectsByValue = computed(() => {
   transition: box-shadow 0.15s ease;
 }
 
-.project-card:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+.project-card--linked {
+  cursor: pointer;
+}
+
+.project-card--linked:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
 .project-title {
@@ -212,17 +219,5 @@ const projectsByValue = computed(() => {
 .project-description {
   font-size: 0.875rem;
   line-height: 1.6;
-}
-
-
-.img-caption {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
-}
-
-.caption-text {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: white;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 </style>
