@@ -69,7 +69,7 @@
         flat border
         class="event-card event-card--past mb-3 pa-5"
       >
-        <div class="d-flex align-start gap-4 flex-wrap">
+        <div class="d-flex align-start flex-wrap" style="gap: 8px;">
 
           <!-- Date badge -->
           <div class="event-date-badge event-date-badge--past flex-shrink-0 text-center">
@@ -107,42 +107,18 @@ const events = ref([
   {
     id: 1,
     type: 'upcoming',
-    name: 'STEM Day at UNR',
-    description: 'SARAL lab will be hosting a robotics demonstration for local K-12 students as part of UNR\'s annual STEM Day.',
-    location: 'University of Nevada, Reno — Engineering Building',
+    name: 'Title here',
+    description: 'Description here',
+    location: 'Location here',
     date: '2026-09-15',
   },
   {
     id: 2,
-    type: 'upcoming',
-    name: 'Reno Robotics Expo',
-    description: 'Come see our latest robots in action at the annual Reno Robotics Expo, open to the public.',
-    location: 'Reno-Sparks Convention Center, Reno, NV',
-    date: '2026-10-03',
-  },
-  {
-    id: 3,
     type: 'past',
-    name: 'Engineering Open House',
-    description: 'The SARAL lab showcased the MoistureMapper and RoboHydra systems to prospective students and families.',
-    location: 'University of Nevada, Reno',
-    date: '2026-04-12',
-  },
-  {
-    id: 4,
-    type: 'past',
-    name: 'Nevada AgTech Summit',
-    description: 'Dr. Maini presented research on autonomous agricultural robots and precision irrigation strategies.',
-    location: 'Sparks, NV',
+    name: 'Title here',
+    description: 'Description here',
+    location: 'Location here',
     date: '2025-11-08',
-  },
-  {
-    id: 5,
-    type: 'past',
-    name: 'Girls Who Code Workshop',
-    description: 'Lab members mentored high school students in an introductory robotics and coding workshop.',
-    location: 'Washoe County Library, Reno, NV',
-    date: '2025-08-22',
   },
 ])
 

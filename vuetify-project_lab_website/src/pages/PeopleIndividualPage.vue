@@ -31,13 +31,13 @@
         </div>
 
         <!-- Name / role / external links -->
-        <div class="flex-grow-1">
+        <div class="flex-grow-1" >
           <h1 class="person-name mb-1">{{ person.name }}</h1>
-          <div class="person-role text-medium-emphasis mb-4">{{ person.role }}</div>
+          <div class="person-role text-medium-emphasis" >{{ person.role }}</div>
           <div class = "person-year text-medium-emphasis mb-4">{{ person.year }}</div>
 
           <!-- External links -->
-          <div class="d-flex flex-wrap gap-2">
+          <div class="d-flex flex-wrap" style="gap: 4px;">
             <v-btn
               v-if="person.links.email"
               :href="`mailto:${person.links.email}`"
@@ -117,7 +117,7 @@
           <span class="section-label mr-4">Research Interests</span>
           <v-divider />
         </div>
-        <div class="d-flex flex-wrap gap-2">
+        <div class="d-flex flex-wrap" style="gap: 4px;">
           <v-chip
             v-for="interest in person.interests"
             :key="interest"
@@ -145,7 +145,7 @@
         >
           <div class="pub-title mb-1">{{ pub.title }}</div>
           <div class="pub-authors text-medium-emphasis mb-2">{{ pub.authors }}</div>
-          <div class="d-flex align-center flex-wrap gap-2">
+          <div class="d-flex align-center flex-wrap" style="gap: 4px;">
             <v-chip size="small" color="primary" variant="tonal" label class="venue-chip">
               {{ pub.venue }}
             </v-chip>
@@ -161,7 +161,7 @@
           <span class="section-label mr-4">Projects</span>
           <v-divider />
         </div>
-        <div class="d-flex flex-wrap gap-3">
+        <div class="d-flex flex-wrap" style="gap: 4px;">
           <v-btn
             v-for="project in person.projects"
             :key="project.name"

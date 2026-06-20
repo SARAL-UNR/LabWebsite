@@ -4,130 +4,109 @@
     <!-- Page Header -->
     <div class="mb-10">
       <h1 class="page-title mb-2">Teaching</h1>
-      <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-        Funding sources for the SARAL lab.
-      </p>
     </div>
 
-    <!-- Current Funding Section -->
-    <div v-if="currentFunding.length > 0" class="mb-10">
-      <div class="d-flex align-center mb-4">
-        <span class="year-label mr-4">Current Funding</span>
+    <!-- Courses Section -->
+    <div class="mb-12">
+      <div class="d-flex align-center mb-4" style="gap: 16px;">
+        <span class="section-label">Courses Offered</span>
         <v-divider />
       </div>
-      <div class="d-flex flex-column gap-3">
-        <v-card v-for="fund in currentFunding" :key="fund.id" class="funding-card" flat border>
-          <v-card-text class="pa-4">
-            <div class="d-flex align-center gap-4">
 
-              <!-- Logo -->
-              <div class="funding-logo-wrapper flex-shrink-0">
-                <img
-                  v-if="fund.logo"
-                  :src="fund.logo"
-                  :alt="fund.agency"
-                  class="funding-logo"
-                />
-                <!-- Fallback if no logo -->
-                <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                  <v-icon size="28" color="primary">mdi-currency-usd</v-icon>
-                </div>
-              </div>
+      <v-card
+        v-for="course in courses"
+        :key="course.id"
+        flat border
+        class="course-card mb-3 pa-5"
+      >
+        <div class="d-flex align-start flex-wrap" style="gap: 16px;">
 
-              <!-- Text -->
-              <div class="flex-grow-1">
-                <div class="funding-agency">{{ fund.agency }}</div>
-                <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
-                <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
-              </div>
+          <!-- Course code badge -->
+          <div class="course-code-badge flex-shrink-0">
+            {{ course.code }}
+          </div>
 
+          <!-- Content -->
+          <div class="flex-grow-1">
+            <div class="course-name mb-1">{{ course.name }}</div>
+            <div class="course-meta text-medium-emphasis mb-2">{{ course.term }}</div>
+            <div v-if="course.description" class="course-description text-medium-emphasis">
+              {{ course.description }}
             </div>
-          </v-card-text>
-        </v-card>
-      </div>
+          </div>
+
+        </div>
+      </v-card>
     </div>
 
-    <!-- Previous Funding Section -->
-    <div v-if="previousFunding.length > 0" class="mb-10">
-      <div class="d-flex align-center mb-4">
-        <span class="year-label mr-4">Previous Funding</span>
+    <!-- Resources Section -->
+    <div class="mb-10">
+      <div class="d-flex align-center mb-4" style="gap: 16px;">
+        <span class="section-label">Resources</span>
         <v-divider />
       </div>
-      <div class="d-flex flex-column gap-3">
-        <v-card v-for="fund in previousFunding" :key="fund.id" class="funding-card" flat border>
-          <v-card-text class="pa-4">
-            <div class="d-flex align-center gap-4">
 
-              <!-- Logo -->
-              <div class="funding-logo-wrapper flex-shrink-0">
-                <img
-                  v-if="fund.logo"
-                  :src="fund.logo"
-                  :alt="fund.agency"
-                  class="funding-logo"
-                />
-                <div v-else class="funding-logo-fallback d-flex align-center justify-center">
-                  <v-icon size="28" color="error">mdi-currency-usd</v-icon>
-                </div>
-              </div>
-
-              <!-- Text -->
+      <v-row>
+        <v-col
+          v-for="resource in resources"
+          :key="resource.id"
+          cols="12"
+          sm="6"
+        >
+          <v-card
+            :href="resource.link"
+            target="_blank"
+            flat border
+            class="resource-card pa-4"
+          >
+            <div class="d-flex align-center" style="gap: 12px;">
+              <v-icon :icon="resource.icon" size="24" color="primary" class="flex-shrink-0" />
               <div class="flex-grow-1">
-                <div class="funding-agency">{{ fund.agency }}</div>
-                <div v-if="fund.title" class="funding-title">{{ fund.title }}</div>
-                <div v-if="fund.amount" class="funding-amount text-medium-emphasis">{{ fund.amount }}</div>
-                <div v-if="fund.principalInvestigator" class="funding-pi text-medium-emphasis">PI: {{ fund.principalInvestigator }}</div>
+                <div class="resource-name">{{ resource.name }}</div>
+                <div class="resource-description text-medium-emphasis">{{ resource.description }}</div>
               </div>
-
+              <v-icon size="16" color="primary" class="flex-shrink-0">mdi-open-in-new</v-icon>
             </div>
-          </v-card-text>
-        </v-card>
-      </div>
+          </v-card>
+        </v-col>
+      </v-row>
     </div>
 
   </v-container>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import AppLayout from '@/components/AppLayout.vue'
+import { ref } from 'vue'
 
-// ── Funding data ──────────────────────────────────────────────────────────────
-// Add a logo field pointing to an image in public/images/funding/
-// Leave logo as '' to show the fallback icon instead.
-const funding = ref([
+// ── Course data ───────────────────────────────────────────────────────────────
+const courses = ref([
   {
     id: 1,
-    type: 'Current',
-    agency: 'National Science Foundation',
-    title: 'Collaborative Research: Program Title',
-    amount: '$500,000 (2024-2027)',
-    principalInvestigator: 'Dr. Name',
-    logo: '/images/funding/testfd1.jpeg',
+    code: 'CPE 470/670',
+    name: 'Introduction to Robotics',
+    term: 'Fall 2026',
+    description: 'Design, implementation and programming of autonomous mobile robots; sensors, effectors, basic control theory, fundamental elements of mobile robot control, introduction to advanced topics, illustrations of state-of-the-art. Teamwork: final project tested in a robot contest.',
   },
   {
     id: 2,
-    type: 'Current',
-    agency: 'NSF - IIS',
-    title: 'Award Title',
-    amount: '$250,000 (2025-2028)',
-    principalInvestigator: 'Dr. Name',
-    logo: '/images/funding/nsf.png',
-  },
-  {
-    id: 3,
-    type: 'Previous',
-    agency: 'Department of Energy',
-    title: 'Previous Research Project',
-    amount: '$350,000 (2021-2024)',
-    principalInvestigator: 'Dr. Name',
-    logo: '/images/funding/doe.png',
-  },
+    code: 'Course Here',
+    name: 'Name Here',
+    term: 'Term Here',
+    description: 'Description here',
+  }
 ])
 
-const currentFunding = computed(() => funding.value.filter(f => f.type === 'Current'))
-const previousFunding = computed(() => funding.value.filter(f => f.type === 'Previous'))
+// ── Resource data ─────────────────────────────────────────────────────────────
+// Each resource links to an external site
+const resources = ref([
+  {
+    id: 1,
+    name: 'Name Here',
+    description: 'Description here',
+    link: 'https://docs.ros.org',
+    icon: 'mdi-robot-outline',
+  }
+])
 </script>
 
 <style scoped>
@@ -138,7 +117,7 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
   line-height: 1.1;
 }
 
-.year-label {
+.section-label {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -146,63 +125,64 @@ const previousFunding = computed(() => funding.value.filter(f => f.type === 'Pre
   color: rgb(var(--v-theme-primary));
 }
 
-.funding-card {
+/* Course cards */
+.course-card {
   border-radius: 10px !important;
   transition: box-shadow 0.15s ease;
 }
 
-.funding-card:hover {
+.course-card:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Logo container — fixed size so all cards align consistently */
-.funding-logo-wrapper {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.course-code-badge {
+  background-color: rgb(var(--v-theme-primary));
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
-.funding-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 8px;
-}
-
-.funding-logo-fallback {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(var(--v-theme-primary), 0.08);
-}
-
-.funding-agency {
+.course-name {
   font-size: 0.975rem;
   font-weight: 600;
   line-height: 1.4;
-  margin-bottom: 0.25rem;
 }
 
-.funding-title {
+.course-meta {
+  font-size: 0.825rem;
+  line-height: 1.4;
+}
+
+.course-description {
   font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.5;
-  margin-bottom: 0.25rem;
+  line-height: 1.6;
 }
 
-.funding-amount {
-  font-size: 0.8rem;
-  line-height: 1.5;
-  margin-bottom: 0.2rem;
+/* Resource cards */
+.resource-card {
+  border-radius: 10px !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.funding-pi {
+.resource-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(var(--v-theme-primary), 0.4) !important;
+}
+
+.resource-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.resource-description {
   font-size: 0.8rem;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 </style>

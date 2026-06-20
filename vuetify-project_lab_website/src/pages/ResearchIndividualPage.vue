@@ -16,10 +16,7 @@
 
       <!-- Title + meta -->
       <h1 class="project-title mb-2">{{ project.title }}</h1>
-      <div class="project-meta text-medium-emphasis mb-1">{{ project.people }}</div>
       <div class="project-meta text-medium-emphasis mb-6">{{ project.date }}</div>
-
-      <v-divider class="mb-8" />
 
       <!-- Description -->
       <div v-if="project.description" class="mb-8">
@@ -36,7 +33,7 @@
           <span class="section-label mr-4">Highlights</span>
           <v-divider />
         </div>
-        <div class="d-flex flex-wrap gap-2">
+        <div class="d-flex flex-wrap style" style="gap: 4px;">
           <v-chip
             v-for="h in project.highlights"
             :key="h"
@@ -82,7 +79,7 @@
         >
           <div class="pub-title mb-1">{{ pub.title }}</div>
           <div class="pub-authors text-medium-emphasis mb-2">{{ pub.authors }}</div>
-          <div class="d-flex align-center flex-wrap gap-2">
+          <div class="d-flex align-center flex-wrap" style="gap: 4px;">
             <v-chip size="small" color="primary" variant="tonal" label>{{ pub.venue }}</v-chip>
             <v-btn v-if="pub.pdfUrl"   :href="pub.pdfUrl"   target="_blank" variant="text" size="small" color="primary" prepend-icon="mdi-file-pdf-box"  class="link-btn">PDF</v-btn>
             <v-btn v-if="pub.arxivUrl" :href="pub.arxivUrl" target="_blank" variant="text" size="small" color="primary" prepend-icon="mdi-open-in-new"    class="link-btn">arXiv</v-btn>
@@ -97,7 +94,7 @@
           <span class="section-label mr-4">Team</span>
           <v-divider />
         </div>
-        <div class="d-flex flex-wrap gap-2">
+        <div class="d-flex flex-wrap" style="gap: 4px;">
           <v-btn
             v-for="member in project.team"
             :key="member.name"
@@ -149,7 +146,7 @@ const projects = [
     ],
     publications: [],
     team: [
-      { name: 'Dominic Palmieri',        slug: 'dominic-palmieri' },
+      { name: 'Dominic Palmieri', slug: 'dominic-palmieri' },
       { name: 'Emanuel Gutierrez-Cornejo', slug: 'emanuel-gutierrez-cornejo' },
     ],
   },

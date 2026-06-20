@@ -111,14 +111,7 @@ const news = ref([
     title: 'Title here',
     body: 'Description here',
     link: '',
-  },
-  {
-    id: 3,
-    date: 'Date here',
-    title: 'Title here',
-    body: 'Description here',
-    link: 'https://www.unr.edu',
-  },
+  }
 ])
 </script>
 

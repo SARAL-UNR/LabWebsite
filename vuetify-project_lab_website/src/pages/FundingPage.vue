@@ -105,20 +105,12 @@ const funding = ref([
   },
   {
     id: 2,
-    type: 'Current',
-    agency: 'Agency here',
-    title: 'Title here',
-    amount: 'Amount with timeframe here',
-    logo: '/images/funding/nsf.png',
-  },
-  {
-    id: 3,
     type: 'Previous',
     agency: 'Agency here',
     title: 'Title here',
     amount: 'Amount with timeframe here',
     logo: '/images/funding/doe.png',
-  },
+  }
 ])
 
 const currentFunding = computed(() => funding.value.filter(f => f.type === 'Current'))
