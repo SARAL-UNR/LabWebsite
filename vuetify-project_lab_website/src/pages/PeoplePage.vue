@@ -5,7 +5,7 @@
     <div class="mb-12">
       <h1 class="page-title mb-2">People</h1>
       <p class="text-medium-emphasis" style="font-size: 1.05rem;">
-        The researchers and students behind SARAL.
+        The researchers and students behind SARAL. Click on a person's name to learn more about them.
       </p>
     </div>
 
@@ -149,7 +149,7 @@ const people = ref([
     slug: '',
     name: 'David Park',
     description: 'PhD Alumni → Google DeepMind',
-    group: 'Alumni',
+    group: 'Master\'s Alumni',
     years: '',
     photo: '/images/people/david-park.png',
   },
@@ -158,13 +158,22 @@ const people = ref([
     slug: '',
     name: 'Priya Nair',
     description: 'MS Alumni → Boston Dynamics',
-    group: 'Alumni',
+    group: 'Phd Alumni',
     years: '',
     photo: '/images/people/priya-nair.png',
   },
+  {
+    id: 11,
+    slug: '',
+    name: 'John Doe',
+    description: 'Bachelor\'s Alumni → XYZ Company',
+    group: 'Bachelor\'s Alumni',
+    years: '',
+    photo: '/images/people/john-doe.png',
+  },
 ])
 
-const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Alumni"]
+const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Phd Alumni", "Master's Alumni", "Bachelor's Alumni"]
 
 const groups = computed(() =>
   groupOrder

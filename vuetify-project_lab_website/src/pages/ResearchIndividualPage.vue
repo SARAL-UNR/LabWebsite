@@ -189,7 +189,7 @@ const projects = [
   {
     slug: 'plant-phenotyping-lai',
     title: 'Plant Phenotyping: Leaf Area Index (LAI)',
-    people: '*Arif Ahmed',
+    people: 'Arif Ahmed',
     date: 'DATES HERE',
     description: `Mobile manipulator and UAV work together to phenotype crops for selecting better yielding irrigation strategies.`,
     highlights: ['UAV', 'Mobile manipulation', 'Precision agriculture', 'Phenotyping'],
@@ -204,7 +204,7 @@ const projects = [
   },
   {
     slug: 'robotics-ai-plant-breeding',
-    title: 'Robotics and AI for Plant Breeding',
+    title: 'Autonomous Drone Sprayer',
     people: '*Arif Ahmed, Jairo Cadena-Mendez, Yovan Hirales',
     date: 'DATES HERE',
     description: `Drone based precision spraying of agrochemicals on a field-wide scale. Work with farmers and breeders to apply treatments to corn, sorghum, and onion crops.`,
@@ -220,20 +220,22 @@ const projects = [
     ],
   },
   {
-    slug: 'cowbot',
-    title: 'CowBot',
-    people: 'Dr. Parikshit Maini',
-    date: '2023 - 2025',
-    description: `Full description of the CowBot project goes here.`,
-    highlights: [],
+    slug: 'ground-air-robotics',
+    title: 'Ground-Air Robotics',
+    people: 'Jairo Cadena-Mendez, Yovan Hirales',
+    date: 'DATES HERE',
+    description: `Description Here`,
+    highlights: ['Ground robotics', 'Aerial robotics', 'Integration', 'Agricultural applications'],
     images: [
-      { src: '/images/projects/project2a.jpeg', caption: 'Caption for image 2a' },
+      { src: '/images/projects/GroundAir1.png', caption: '' },
+      { src: '/images/projects/GroundAir2.png', caption: '' },
     ],
     publications: [],
     team: [
-      { name: 'Dr. Parikshit Maini', slug: 'parikshit-maini' },
+      { name: 'Arif Ahmed', slug: 'arif-ahmed' },
+      { name: 'Nathaniel Rose', slug: 'nathaniel-rose' },
     ],
-  },
+  }
 ]
 
 const project = computed(() =>

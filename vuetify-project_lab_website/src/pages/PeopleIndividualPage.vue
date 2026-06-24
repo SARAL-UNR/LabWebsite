@@ -15,7 +15,7 @@
       </v-btn>
 
       <!-- Header: photo + name/role/links -->
-      <div class="d-flex align-start gap-8 mb-10 flex-wrap">
+      <div class="d-flex align-start gap-8 flex-wrap" style="gap: 16px;">
 
         <!-- Portrait -->
         <div class="person-portrait-wrapper flex-shrink-0">

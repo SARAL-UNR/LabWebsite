@@ -39,6 +39,39 @@
       </v-card>
     </div>
 
+    <!-- Past Courses Section -->
+    <div class="mb-12">
+      <div class="d-flex align-center mb-4" style="gap: 16px;">
+        <span class="section-label">Past Courses</span>
+        <v-divider />
+      </div>
+
+      <v-card
+        v-for="course in pastCourses"
+        :key="course.id"
+        flat border
+        class="course-card past-course-card mb-3 pa-5"
+      >
+        <div class="d-flex align-start flex-wrap" style="gap: 16px;">
+
+          <!-- Course code badge -->
+          <div class="course-code-badge past-badge flex-shrink-0">
+            {{ course.code }}
+          </div>
+
+          <!-- Content -->
+          <div class="flex-grow-1">
+            <div class="course-name mb-1">{{ course.name }}</div>
+            <div class="course-meta text-medium-emphasis mb-2">{{ course.term }}</div>
+            <div v-if="course.description" class="course-description text-medium-emphasis">
+              {{ course.description }}
+            </div>
+          </div>
+
+        </div>
+      </v-card>
+    </div>
+
     <!-- Resources Section -->
     <div class="mb-10">
       <div class="d-flex align-center mb-4" style="gap: 16px;">
@@ -87,17 +120,27 @@ const courses = ref([
     term: 'Fall 2026',
     description: 'Design, implementation and programming of autonomous mobile robots; sensors, effectors, basic control theory, fundamental elements of mobile robot control, introduction to advanced topics, illustrations of state-of-the-art. Teamwork: final project tested in a robot contest.',
   },
+])
+
+// ── Past Course data ──────────────────────────────────────────────────────────
+const pastCourses = ref([
+  {
+    id: 1,
+    code: 'CS 477',
+    name: 'Analysis of Algorithms',
+    term: 'Term Here',
+    description: 'Analysis and design of algorithms on sequences, sets, graphs and trees. Geometric, algebraic and numeric algorithms, FFTs, reductions. Parallel algorithms.',
+  },
   {
     id: 2,
-    code: 'Course Here',
-    name: 'Name Here',
+    code: 'CS 491',
+    name: 'Advanced Mobile Robots',
     term: 'Term Here',
     description: 'Description here',
   }
 ])
 
 // ── Resource data ─────────────────────────────────────────────────────────────
-// Each resource links to an external site
 const resources = ref([
   {
     id: 1,
@@ -144,6 +187,12 @@ const resources = ref([
   padding: 6px 12px;
   border-radius: 6px;
   white-space: nowrap;
+}
+
+/* Past course badge uses a muted style */
+.past-badge {
+  background-color: rgba(var(--v-theme-primary), 0.15);
+  color: rgb(var(--v-theme-primary));
 }
 
 .course-name {

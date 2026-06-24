@@ -19,32 +19,39 @@
       </div>
 
       <!-- Project Cards -->
-      <v-card
-        v-for="project in group.projects"
-        :key="project.id"
-        flat
-        border
-        class="project-card mb-4 pa-5"
-        :class="{ 'project-card--linked': project.slug }"
-        :ripple="false"
-        @click="handleClick(project)"
-      >
-        <!-- Title + arrow -->
-        <div class="d-flex align-center justify-space-between mb-1">
-          <div class="project-title">{{ project.title }}</div>
-          <v-icon v-if="project.slug" size="18" color="primary" class="ml-2">mdi-arrow-right</v-icon>
-        </div>
+      <v-row>
+        <v-col
+          v-for="project in group.projects"
+          :key="project.id"
+          cols="12"
+          sm="6"
+        >
+          <v-card
+            flat
+            border
+            class="project-card mb-4 pa-5"
+            :class="{ 'project-card--linked': project.slug }"
+            :ripple="false"
+            @click="handleClick(project)"
+          >
+            <!-- Title + arrow -->
+            <div class="d-flex align-center justify-space-between mb-1">
+              <div class="project-title">{{ project.title }}</div>
+              <v-icon v-if="project.slug" size="18" color="primary" class="ml-2">mdi-arrow-right</v-icon>
+            </div>
 
-        <!-- Preview image (first image only) -->
-        <div v-if="project.images && project.images.length > 0">
-          <v-img
-            :src="project.images[0].src"
-            rounded="lg"
-            max-height="220"
-            cover
-          />
-        </div>
-      </v-card>
+            <!-- Preview image (first image only) -->
+            <div v-if="project.images && project.images.length > 0">
+              <v-img
+                :src="project.images[0].src"
+                rounded="lg"
+                max-height="220"
+                cover
+              />
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
     </div>
   </v-container>
 </template>
@@ -103,9 +110,9 @@ const projects = ref([
   },
   {
     id: 2,
-    slug: 'cowbot',
-    value: 'Previous Research',
-    title: 'CowBot',
+    slug: 'ground-air-robotics',
+    value: 'Current Research',
+    title: 'Ground-Air Robotics',
     images: [
       { src: '/images/projects/project2a.jpeg', caption: 'Caption for image 2a' },
     ],

@@ -57,6 +57,7 @@
     </div>
 
     <!-- Past Events -->
+    <!--
     <div v-if="pastEvents.length > 0" class="mb-10">
       <div class="d-flex align-center mb-4">
         <span class="section-label mr-4">Past Events</span>
@@ -71,14 +72,14 @@
       >
         <div class="d-flex align-start flex-wrap" style="gap: 8px;">
 
-          <!-- Date badge -->
+
           <div class="event-date-badge event-date-badge--past flex-shrink-0 text-center">
             <div class="event-month">{{ month(event.date) }}</div>
             <div class="event-day">{{ day(event.date) }}</div>
             <div class="event-year">{{ year(event.date) }}</div>
           </div>
 
-          <!-- Content -->
+
           <div class="flex-grow-1">
             <div class="event-name mb-1">{{ event.name }}</div>
             <div class="event-location text-medium-emphasis mb-2">
@@ -93,6 +94,7 @@
         </div>
       </v-card>
     </div>
+  -->
 
   </v-container>
 </template>
@@ -107,19 +109,19 @@ const events = ref([
   {
     id: 1,
     type: 'upcoming',
-    name: 'Title here',
+    name: 'College of Engineering Summer Camp',
     description: 'Description here',
-    location: 'Location here',
-    date: '2026-09-15',
+    location: 'University of Nevada, Reno',
+    date: '2026-06-24',
   },
   {
     id: 2,
-    type: 'past',
-    name: 'Title here',
+    type: 'upcoming',
+    name: '4-H Summer Camp',
     description: 'Description here',
-    location: 'Location here',
-    date: '2025-11-08',
-  },
+    location: '4-H Camp',
+    date: '2026-07-29',
+  }
 ])
 
 const upcomingEvents = computed(() =>
