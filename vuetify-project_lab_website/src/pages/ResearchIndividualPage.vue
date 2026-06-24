@@ -160,6 +160,8 @@ const projects = [
     images: [
       { src: '/images/projects/RSMS1.png', caption: '' },
       { src: '/images/projects/RSMS2.png', caption: '' },
+      { src: '/images/projects/RSMS3.png', caption: '' },
+      { src: '/images/projects/RSMS4.png', caption: '' },
     ],
     publications: [],
     team: [
@@ -176,7 +178,9 @@ const projects = [
     highlights: ['Stability prediction', 'IMU sensing', 'Deep learning', 'C3 score'],
     images: [
       { src: '/images/projects/C31.png', caption: '' },
-      { src: '/images/projects/C32.png', caption: '' },
+      { src: '/images/projects/C32.jpeg', caption: '' },
+      { src: '/images/projects/C33.png', caption: '' },
+      { src: '/images/projects/C34.png', caption: '' },
     ],
     publications: [],
     team: [
@@ -196,6 +200,12 @@ const projects = [
     images: [
       { src: '/images/projects/LAI1.png', caption: '' },
       { src: '/images/projects/LAI2.png', caption: '' },
+      { src: '/images/projects/LAI3.png', caption: '' },
+      { src: '/images/projects/LAI4.png', caption: '' },
+      { src: '/images/projects/LAI5.png', caption: '' },
+      { src: '/images/projects/LAI6.png', caption: '' },
+      { src: '/images/projects/LAI7.png', caption: '' },
+      { src: '/images/projects/LAI8.png', caption: '' },
     ],
     publications: [],
     team: [
@@ -227,8 +237,8 @@ const projects = [
     description: `Description Here`,
     highlights: ['Ground robotics', 'Aerial robotics', 'Integration', 'Agricultural applications'],
     images: [
-      { src: '/images/projects/GroundAir1.png', caption: '' },
-      { src: '/images/projects/GroundAir2.png', caption: '' },
+      { src: '/images/projects/GAC1.png', caption: '' },
+      { src: '/images/projects/GAC2.png', caption: '' },
     ],
     publications: [],
     team: [

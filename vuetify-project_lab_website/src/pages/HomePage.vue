@@ -103,7 +103,7 @@ const news = ref([
     date: 'Date here',
     title: 'Title here',
     body: 'Description here',
-    link: '#',
+    link: 'https://www.unr.edu/',
   },
   {
     id: 2,

@@ -48,6 +48,18 @@
               {{ typeLabel(pub.type) }}
             </v-chip>
 
+            <!-- Review only tag -->
+            <v-chip
+              v-if="pub.review"
+              size="small"
+              variant="outlined"
+              label
+              class="type-chip"
+              color="error"
+            >
+              Review Only
+            </v-chip>
+
             <v-btn
               v-if="pub.pdfUrl"
               :href="pub.pdfUrl"
@@ -107,6 +119,7 @@ const publications = ref([
     authors: 'Names Here',
     venue: 'CoRL 2026',
     type: 'journal',
+    review: true,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -120,6 +133,7 @@ const publications = ref([
     authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
     venue: 'RSS 2025 Workshop',
     type: 'workshop',
+    review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -131,6 +145,7 @@ const publications = ref([
     authors: 'Arif Ahmed, Ritvik Agarwal, Gaurav Srikar, Nathaniel Rose, Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
+    review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -142,6 +157,7 @@ const publications = ref([
     authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
+    review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -153,6 +169,7 @@ const publications = ref([
     authors: 'Ritvik Agarwal, Behnoushsadat Hatami, Alvika Gautam, Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
+    review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -164,6 +181,7 @@ const publications = ref([
     authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
     venue: 'CoRR 2025',
     type: 'conference',
+    review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -175,6 +193,7 @@ const publications = ref([
     authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
     venue: 'CASE 2025',
     type: 'conference',
+    review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
@@ -215,10 +234,6 @@ function typeLabel(type) {
 .pub-card {
   border-radius: 10px !important;
   transition: box-shadow 0.15s ease;
-}
-
-.pub-card:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .pub-title {

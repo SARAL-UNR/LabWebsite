@@ -69,7 +69,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'RoboHydra',
     images: [
-      { src: '/images/projects/Hydra1.png', caption: 'RoboHydra' },
+      { src: '/images/projects/Hydra2.png', caption: 'RoboHydra' },
     ],
   },
   {
@@ -87,7 +87,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'Stability Aware Navigation',
     images: [
-      { src: '/images/projects/C31.png', caption: '' },
+      { src: '/images/projects/C32.jpeg', caption: '' },
     ],
   },
   {
@@ -103,7 +103,7 @@ const projects = ref([
     id: 6,
     slug: 'robotics-ai-plant-breeding',
     value: 'Current Research',
-    title: 'Robotics and AI for Plant Breeding',
+    title: 'Autonomous Drone Sprayer',
     images: [
       { src: '/images/projects/Spray1.png', caption: '' },
     ],
@@ -114,7 +114,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'Ground-Air Robotics',
     images: [
-      { src: '/images/projects/project2a.jpeg', caption: 'Caption for image 2a' },
+      { src: '/images/projects/GAC2.png', caption: 'Caption for image 2a' },
     ],
   },
 ])

@@ -171,9 +171,18 @@ const people = ref([
     years: '',
     photo: '/images/people/john-doe.png',
   },
+  {
+    id: 12,
+    slug: '',
+    name: 'Jane Smith',
+    description: 'Former REU Student',
+    group: 'Former REU Students',
+    years: '',
+    photo: '/images/people/jane-smith.png',
+  }
 ])
 
-const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Phd Alumni", "Master's Alumni", "Bachelor's Alumni"]
+const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Phd Alumni", "Master's Alumni", "Bachelor's Alumni", "Former REU Students"]
 
 const groups = computed(() =>
   groupOrder
@@ -225,7 +234,7 @@ function handleClick(person) {
 }
 
 .person-card--linked .portrait-wrapper:hover {
-  border-color: rgba(var(--v-theme-primary), 0.6);
+  border-color: rgba(var(--v-theme-primary), 1);
   transform: translateY(-3px);
 }
 

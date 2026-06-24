@@ -105,7 +105,7 @@
       <!-- Bio -->
       <div v-if="person.bio" class="mb-8">
         <div class="section-heading d-flex align-center mb-3">
-          <span class="section-label mr-4">About</span>
+          <span class="section-label pushed-text mr-4">About</span>
           <v-divider />
         </div>
         <p class="body-text">{{ person.bio }}</p>
@@ -169,7 +169,6 @@
             variant="tonal"
             color="primary"
             size="small"
-            prepend-icon="mdi-robot-outline"
             class="link-btn"
           >
             {{ project.name }}
@@ -275,8 +274,8 @@ const people = [
   {
     slug: 'hannah-chuang',
     name: 'Hannah Chung',
-    role: 'PhD Student',
-    group: 'PhD Students',
+    role: 'Master\'s Student',
+    group: 'Master\'s Students',
     photo: '/images/people/hannah-chung.png',
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
@@ -303,8 +302,8 @@ const people = [
   {
     slug: 'emanuel-gutierrez-cornejo',
     name: 'Emanuel Gutierrez-Cornejo',
-    role: 'PhD Student',
-    group: 'PhD Students',
+    role: 'Master\'s Student',
+    group: 'Master\'s Students',
     photo: '/images/people/emanuel-gutierrez-cornejo.png',
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
@@ -331,8 +330,8 @@ const people = [
   {
     slug: 'jairo-cadena-mendez',
     name: 'Jairo Cadena-Mendez',
-    role: 'PhD Student',
-    group: 'PhD Students',
+    role: 'Master\'s Student',
+    group: 'Master\'s Students',
     photo: '/images/people/jairo-cadena-mendez.png',
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
@@ -359,8 +358,8 @@ const people = [
   {
     slug: 'dominic-palmieri',
     name: 'Dominic Palmieri',
-    role: 'PhD Student',
-    group: 'PhD Students',
+    role: 'Master\'s Student',
+    group: 'Master\'s Students',
     photo: '/images/people/dominic-palmieri.png',
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
@@ -387,8 +386,8 @@ const people = [
   {
     slug: 'yovan-hirales',
     name: 'Yovan Hirales',
-    role: 'PhD Student',
-    group: 'PhD Students',
+    role: 'Undergraduate Student',
+    group: 'Undergraduate Students',
     photo: '/images/people/yovan-hirales.png',
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
@@ -509,5 +508,8 @@ function initials(name) {
   font-size: 0.8rem !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
+}
+.pushed-text {
+  margin-top: 20px; 
 }
 </style>
