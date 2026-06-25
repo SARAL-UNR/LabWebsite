@@ -59,7 +59,13 @@
             :key="i"
             :cols="project.images.length === 1 ? 12 : 6"
           >
-            <v-img :src="img.src" rounded="lg" />
+          <div :style="img.rotation === 90 || img.rotation === 270 ? 'overflow: hidden; height: 300px;' : ''">
+            <v-img
+              :src="img.src"
+              rounded="lg"
+              :style="img.rotation ? `transform: rotate(${img.rotation}deg)` : ''"
+            />
+          </div>
             <div v-if="img.caption" class="img-caption-below mt-1">{{ img.caption }}</div>
           </v-col>
         </v-row>
@@ -180,7 +186,7 @@ const projects = [
       { src: '/images/projects/C31.png', caption: '' },
       { src: '/images/projects/C32.jpeg', caption: '' },
       { src: '/images/projects/C33.png', caption: '' },
-      { src: '/images/projects/C34.png', caption: '' },
+      { src: '/images/projects/C34.png', caption: '', rotation: 90 },
     ],
     publications: [],
     team: [
