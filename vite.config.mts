@@ -2,11 +2,12 @@ import UnoCSS from 'unocss/vite';
 import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
 import Fonts from 'unplugin-fonts/vite'
-import { defineConfig } from 'vite'
+import { build, defineConfig } from 'vite'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/LabWebsite/',
   plugins: [Vue({
     template: { transformAssetUrls },
   }), // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
@@ -30,6 +31,10 @@ export default defineConfig({
       ],
     },
   }), UnoCSS()],
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {
