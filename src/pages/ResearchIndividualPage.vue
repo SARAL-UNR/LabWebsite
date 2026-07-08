@@ -147,8 +147,8 @@ const projects = [
     description: `Full description of the RoboHydra project goes here.`,
     highlights: ['Multi-arm manipulation', 'Autonomous coordination', 'Real-time control'],
     images: [
-      { src: '/images/projects/Hydra1.png', caption: 'RoboHydra system overview' },
-      { src: '/images/projects/Hydra2.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/Hydra1.png`, caption: 'RoboHydra system overview' },
+      { src: `${import.meta.env.BASE_URL}images/projects/Hydra2.png`, caption: '' },
     ],
     publications: [],
     team: [
@@ -164,10 +164,10 @@ const projects = [
     description: `The MoistureMapper is an autonomous robot that can measure soil moisture at points of interest of a farm plot. The goal is to build a comprehensive map of the soil moisture across the field.`,
     highlights: ['Autonomous navigation', 'Soil sensing', 'Agricultural robotics'],
     images: [
-      { src: '/images/projects/RSMS1.png', caption: '' },
-      { src: '/images/projects/RSMS2.png', caption: '' },
-      { src: '/images/projects/RSMS3.png', caption: '' },
-      { src: '/images/projects/RSMS4.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/RSMS1.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/RSMS2.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/RSMS3.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/RSMS4.png`, caption: '' },
     ],
     publications: [],
     team: [
@@ -183,10 +183,10 @@ const projects = [
     description: `The goal is to predict a robot stability score between 0 and 1. We do this by training a novel vision-based stability metric using count-circle-crossings (C3) score. The method is a data-based learning network trained on C3 score to learn current stability from IMU and velocity.`,
     highlights: ['Stability prediction', 'IMU sensing', 'Deep learning', 'C3 score'],
     images: [
-      { src: '/images/projects/C31.png', caption: '' },
-      { src: '/images/projects/C32.jpeg', caption: '' },
-      { src: '/images/projects/C33.png', caption: '' },
-      { src: '/images/projects/C34.png', caption: '', rotation: 90 },
+      { src: `${import.meta.env.BASE_URL}images/projects/C31.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/C32.jpeg`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/C33.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/C34.png`, caption: '', rotation: 90 },
     ],
     publications: [],
     team: [
@@ -204,14 +204,14 @@ const projects = [
     description: `Mobile manipulator and UAV work together to phenotype crops for selecting better yielding irrigation strategies.`,
     highlights: ['UAV', 'Mobile manipulation', 'Precision agriculture', 'Phenotyping'],
     images: [
-      { src: '/images/projects/LAI1.png', caption: '' },
-      { src: '/images/projects/LAI2.png', caption: '' },
-      { src: '/images/projects/LAI3.png', caption: '' },
-      { src: '/images/projects/LAI4.png', caption: '' },
-      { src: '/images/projects/LAI5.png', caption: '' },
-      { src: '/images/projects/LAI6.png', caption: '' },
-      { src: '/images/projects/LAI7.png', caption: '' },
-      { src: '/images/projects/LAI8.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI1.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI2.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI3.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI4.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI5.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI6.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI7.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI8.png`, caption: '' },
     ],
     publications: [],
     team: [
@@ -226,7 +226,7 @@ const projects = [
     description: `Drone based precision spraying of agrochemicals on a field-wide scale. Work with farmers and breeders to apply treatments to corn, sorghum, and onion crops.`,
     highlights: ['Precision spraying', 'Drone systems', 'Plant breeding', 'Agronomy'],
     images: [
-      { src: '/images/projects/Spray1.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/Spray1.png`, caption: '' },
     ],
     publications: [],
     team: [
@@ -243,8 +243,8 @@ const projects = [
     description: `Description Here`,
     highlights: ['Ground robotics', 'Aerial robotics', 'Integration', 'Agricultural applications'],
     images: [
-      { src: '/images/projects/GAC1.png', caption: '' },
-      { src: '/images/projects/GAC2.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/GAC1.png`, caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/GAC2.png`, caption: '' },
     ],
     publications: [],
     team: [

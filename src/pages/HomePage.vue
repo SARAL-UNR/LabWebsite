@@ -89,9 +89,9 @@
 import { ref } from 'vue'
 
 const slides = ref([
-  { id: 1, src: '/images/slideshow/test1.jpeg', caption: 'Mobile manipulation in unstructured environments' },
-  { id: 2, src: '/images/slideshow/test2.jpeg', caption: 'Autonomous navigation in outdoor terrain' },
-  { id: 3, src: '/images/slideshow/test3.jpeg', caption: 'Perception and planning for legged robots' },
+  { id: 1, src: `${import.meta.env.BASE_URL}images/slideshow/test1.jpeg`, caption: 'Mobile manipulation in unstructured environments' },
+  { id: 2, src: `${import.meta.env.BASE_URL}images/slideshow/test2.jpeg`, caption: 'Autonomous navigation in outdoor terrain' },
+  { id: 3, src: `${import.meta.env.BASE_URL}images/slideshow/test3.jpeg`, caption: 'Perception and planning for legged robots' },
 ])
 
 // ── News data ─────────────────────────────────────────────────────────────────

@@ -204,7 +204,7 @@ const people = [
     role: 'Principal Investigator',
     group: 'PI',
     year: '2018 - Present',
-    photo: '/images/people/parikshit-maini.png',
+    photo: `${import.meta.env.BASE_URL}images/people/parikshit-maini.png`,
     bio: `TEXT HERE`,
     interests: ['Mobile Manipulation', 'Motion Planning', 'Deep Reinforcement Learning', 'Robot Perception'],
     links: {
@@ -220,7 +220,7 @@ const people = [
     name: 'Arif Ahmed',
     role: 'PhD Student',
     group: 'PhD Students',
-    photo: '/images/people/arif-ahmed.png',
+    photo: `${import.meta.env.BASE_URL}images/people/arif-ahmed.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
@@ -248,7 +248,7 @@ const people = [
     name: 'Nathaniel Rose',
     role: 'PhD Student',
     group: 'PhD Students',
-    photo: '/images/people/nathaniel-rose.png',
+    photo: `${import.meta.env.BASE_URL}images/people/nathaniel-rose.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
@@ -276,7 +276,7 @@ const people = [
     name: 'Hannah Chung',
     role: 'Master\'s Student',
     group: 'Master\'s Students',
-    photo: '/images/people/hannah-chung.png',
+    photo: `${import.meta.env.BASE_URL}images/people/hannah-chung.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
@@ -304,7 +304,7 @@ const people = [
     name: 'Emanuel Gutierrez-Cornejo',
     role: 'Master\'s Student',
     group: 'Master\'s Students',
-    photo: '/images/people/emanuel-gutierrez-cornejo.png',
+    photo: `${import.meta.env.BASE_URL}images/people/emanuel-gutierrez-cornejo.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
@@ -332,7 +332,7 @@ const people = [
     name: 'Jairo Cadena-Mendez',
     role: 'Master\'s Student',
     group: 'Master\'s Students',
-    photo: '/images/people/jairo-cadena-mendez.png',
+    photo: `${import.meta.env.BASE_URL}images/people/jairo-cadena-mendez.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
@@ -360,7 +360,7 @@ const people = [
     name: 'Dominic Palmieri',
     role: 'Master\'s Student',
     group: 'Master\'s Students',
-    photo: '/images/people/dominic-palmieri.png',
+    photo: `${import.meta.env.BASE_URL}images/people/dominic-palmieri.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {
@@ -388,7 +388,7 @@ const people = [
     name: 'Yovan Hirales',
     role: 'Undergraduate Student',
     group: 'Undergraduate Students',
-    photo: '/images/people/yovan-hirales.png',
+    photo: `${import.meta.env.BASE_URL}images/people/yovan-hirales.png`,
     bio: `TEXT HERE`,
     interests: ['Imitation Learning', 'Skill Learning', 'Manipulation'],
     links: {

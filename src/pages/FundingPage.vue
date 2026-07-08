@@ -101,7 +101,7 @@ const funding = ref([
     agency: 'Agency here',
     title: 'Title here',
     amount: '<- Example photo. Amount with timeframe here',
-    logo: '/images/funding/testfd1.jpeg',
+    logo: `${import.meta.env.BASE_URL}images/funding/testfd1.jpeg`,
   },
   {
     id: 2,
@@ -109,7 +109,7 @@ const funding = ref([
     agency: 'Agency here',
     title: 'Title here',
     amount: 'Amount with timeframe here',
-    logo: '/images/funding/doe.png',
+    logo: `${import.meta.env.BASE_URL}images/funding/doe.png`,
   }
 ])
 

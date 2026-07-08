@@ -12,28 +12,24 @@
         <div class="nav-scroll-area">
           <v-list nav density="compact" class="px-2">
             <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'research' }" title="Research" rounded="lg" class="nav-item mb-1" />
             <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'research' }" title="Research" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-1" />
             <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-1" />
             <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-1" />
+            <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-1" />
           </v-list>
         </div>
 
         <!-- Footer info at bottom of sidebar — always visible -->
         <div class="pa-4 flex-shrink-0">
           <v-divider class="opacity-30 mb-3" />
-          <div class="sidebar-footer-text mb-2">
-            University of Nevada, Reno<br />
-            Dept. of Computer Science and Engineering
-          </div>
           <div class="sidebar-footer-text mb-1">
-            <a href="https://www.unr.edu" target="_blank" class="footer-link">unr.edu</a>
+            <a href="https://www.unr.edu" target="_blank" class="footer-link">University of Nevada, Reno</a>
           </div>
-          <div class="sidebar-footer-text">
+          <!-- <div class="sidebar-footer-text">
             <a href="https://www.unr.edu/cse" target="_blank" class="footer-link">unr.edu/cse</a>
-          </div>
+          </div> -->
         </div>
 
       </div>

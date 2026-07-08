@@ -71,7 +71,7 @@ const people = ref([
     description: 'Principal Investigator',
     group: 'Lab Director',
     years: '2018 - Present',
-    photo: '/images/people/parikshit-maini.png',
+    photo: `${import.meta.env.BASE_URL}images/people/parikshit-maini.png`,
   },
 
   // PhD Students
@@ -82,7 +82,7 @@ const people = ref([
     description: 'PhD Student',
     group: 'PhD Students',
     years: '2018 - Present',
-    photo: '/images/people/arif-ahmed.png',
+    photo: `${import.meta.env.BASE_URL}images/people/arif-ahmed.png`,
   },
   {
     id: 3,
@@ -91,7 +91,7 @@ const people = ref([
     description: 'PhD Student',
     group: 'PhD Students',
     years: '2018 - Present',
-    photo: '/images/people/nathaniel-rose.png',
+    photo: `${import.meta.env.BASE_URL}images/people/nathaniel-rose.png`,
   },
 
   // Master's Students
@@ -102,7 +102,7 @@ const people = ref([
     description: "Master's Student",
     group: "Master's Students",
     years: '2018 - Present',
-    photo: '/images/people/hannah-chung.png',
+    photo: `${import.meta.env.BASE_URL}images/people/hannah-chuang.png`,
   },
   {
     id: 5,
@@ -111,7 +111,7 @@ const people = ref([
     description: "Master's Student",
     group: "Master's Students",
     years: '2018 - Present',
-    photo: '/images/people/emanuel-gutierrez-cornejo.png',
+    photo: `${import.meta.env.BASE_URL}images/people/emanuel-gutierrez-cornejo.png`,
   },
   {
     id: 6,
@@ -120,17 +120,18 @@ const people = ref([
     description: "Master's Student",
     group: "Master's Students",
     years: '2025 - Present',
-    photo: '/images/people/jairo-cadena-mendez.png',
+    photo: `${import.meta.env.BASE_URL}images/people/jairo-cadena-mendez.png`,
   },
   {
     id: 7,
-    slug: 'dominic-palmieri',
+    slug: 'https://www.linkedin.com/in/dominic-palmieri-a2b249235',
     name: 'Dominic Palmieri',
     description: "Master's Student",
     group: "Master's Students",
     years: '2026 - Present',
-    photo: '/images/people/dominic-palmieri.png',
+    photo: `${import.meta.env.BASE_URL}images/people/dominic-palmieri.png`,
   },
+
 
   // Undergraduates
   {
@@ -140,18 +141,27 @@ const people = ref([
     description: 'Undergraduate',
     group: 'Undergraduates',
     years: '2026 - Present',
-    photo: '/images/people/yovan-hirales.png',
+    photo: `${import.meta.env.BASE_URL}images/people/yovan-hirales.png`,
+  }, 
+  {
+    id: 13,
+    slug: 'vansh-sachdeva',
+    name: 'Vansh Sachdeva',
+    description: "Undergraduate",
+    group: "Undergraduates",
+    years: '2026 - Present',
+    photo: `${import.meta.env.BASE_URL}images/people/vansh-sachdeva.png`,
   },
 
   // Alumni — no slug needed, no individual page
-  {
+  /*{
     id: 9,
     slug: '',
     name: 'David Park',
     description: 'PhD Alumni → Google DeepMind',
     group: 'Master\'s Alumni',
     years: '',
-    photo: '/images/people/david-park.png',
+    photo: `${import.meta.env.BASE_URL}images/people/david-park.png`,
   },
   {
     id: 10,
@@ -160,7 +170,7 @@ const people = ref([
     description: 'MS Alumni → Boston Dynamics',
     group: 'Phd Alumni',
     years: '',
-    photo: '/images/people/priya-nair.png',
+    photo: `${import.meta.env.BASE_URL}images/people/priya-nair.png`,
   },
   {
     id: 11,
@@ -169,7 +179,7 @@ const people = ref([
     description: 'Bachelor\'s Alumni → XYZ Company',
     group: 'Bachelor\'s Alumni',
     years: '',
-    photo: '/images/people/john-doe.png',
+    photo: `${import.meta.env.BASE_URL}images/people/john-doe.png`,
   },
   {
     id: 12,
@@ -178,8 +188,8 @@ const people = ref([
     description: 'Former REU Student',
     group: 'Former REU Students',
     years: '',
-    photo: '/images/people/jane-smith.png',
-  }
+    photo: `${import.meta.env.BASE_URL}images/people/jane-smith.png`,
+  } */
 ])
 
 const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Phd Alumni", "Master's Alumni", "Bachelor's Alumni", "Former REU Students"]

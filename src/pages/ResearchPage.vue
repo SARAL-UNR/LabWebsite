@@ -69,7 +69,10 @@ const projects = ref([
     value: 'Current Research',
     title: 'RoboHydra',
     images: [
-      { src: '/images/projects/Hydra2.png', caption: 'RoboHydra' },
+      {
+        src: `${import.meta.env.BASE_URL}images/projects/Hydra2.png`,
+        caption: 'RoboHydra',
+      },
     ],
   },
   {
@@ -78,7 +81,10 @@ const projects = ref([
     value: 'Current Research',
     title: 'Robotic Soil Moisture Sensing (RSMS)',
     images: [
-      { src: '/images/projects/RSMS1.png', caption: '' },
+      {
+        src: `${import.meta.env.BASE_URL}images/projects/RSMS1.png`,
+        caption: '',
+      },
     ],
   },
   {
@@ -87,7 +93,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'Stability Aware Navigation',
     images: [
-      { src: '/images/projects/C32.jpeg', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/C32.jpeg`, caption: '' },
     ],
   },
   {
@@ -96,7 +102,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'Plant Phenotyping: Leaf Area Index (LAI)',
     images: [
-      { src: '/images/projects/LAI1.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/LAI1.png`, caption: '' },
     ],
   },
   {
@@ -105,7 +111,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'Autonomous Drone Sprayer',
     images: [
-      { src: '/images/projects/Spray1.png', caption: '' },
+      { src: `${import.meta.env.BASE_URL}images/projects/Spray1.png`, caption: '' },
     ],
   },
   {
@@ -114,7 +120,7 @@ const projects = ref([
     value: 'Current Research',
     title: 'Ground-Air Robotics',
     images: [
-      { src: '/images/projects/GAC2.png', caption: 'Caption for image 2a' },
+      { src: `${import.meta.env.BASE_URL}images/projects/GAC2.png`, caption: 'Caption for image 2a' },
     ],
   },
 ])
