@@ -115,14 +115,12 @@ const publications = ref([
   {
     id: 1,
     year: 2026,
-    title: 'Example Paper',
-    authors: 'Names Here',
+    title: 'Review and Evaluation of Point-Cloud based Leaf Surface Reconstruction Methods for Agricultural Applications',
+    authors: 'A Ahmed, P Maini',
     venue: 'CoRL 2026',
-    type: 'journal',
-    review: true,
-    pdfUrl: null,
-    arxivUrl: null,
-    codeUrl: null,
+    type: 'conference',
+    review: false,
+    arxivUrl: 'https://arxiv.org/abs/2604.03328',
   },
 
   // 2025
@@ -174,24 +172,120 @@ const publications = ref([
     arxivUrl: null,
     codeUrl: null,
   },
+
+  // 2023
   {
-    id: 6,
-    year: 2025,
-    title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
-    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
-    venue: 'CoRR 2025',
+    id: 9,
+    year: 2023,
+    title: 'Wheat Stem Rust Detection with RGB images captured on the Farm using a hand-held camera',
+    authors: 'P Maini, P Tokekar, PB Sujit',
+    venue: 'ASABE 2023',
+    type: 'presentation',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+
+  // 2022
+  {
+    id: 10,
+    year: 2022,
+    title: 'Online coverage planning for an autonomous weed mowing robot with curvature constraints',
+    authors: 'Parikshit Maini, Burak M Gonultas, Volkan Isler',
+    venue: 'IEEE 2022',
+    type: 'letter',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+
+  // 2021
+  {
+    id: 11,
+    year: 2021,
+    title: 'Visual monitoring of points of interest on a 2.5 D terrain using a UAV with limited field-of-view constraint',
+    authors: 'Parikshit Maini, Pratap Tokekar, PB Sujit',
+    venue: 'IEEE 2021',
+    type: 'journal',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+  // 2020
+  {
+    id: 12,
+    year: 2020,
+    title: 'RoboHydra: A Modular, Reconfigurable, and Scalable Robotic Platform for Multi-Robot Research',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2020',
     type: 'conference',
     review: false,
     pdfUrl: null,
     arxivUrl: null,
     codeUrl: null,
   },
+  //2019
   {
-    id: 7,
-    year: 2025,
-    title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
-    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
-    venue: 'CASE 2025',
+    id: 13,
+    year: 2019,
+    title: 'RoboHydra: A Modular, Reconfigurable, and Scalable Robotic Platform for Multi-Robot Research',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2019',
+    type: 'conference',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+  // 2018
+  {
+    id: 14,
+    year: 2018,
+    title: 'RoboHydra: A Modular, Reconfigurable, and Scalable Robotic Platform for Multi-Robot Research',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2018',
+    type: 'conference',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+  // 2017
+  {
+    id: 15,
+    year: 2017,
+    title: 'RoboHydra: A Modular, Reconfigurable, and Scalable Robotic Platform for Multi-Robot Research',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2017',
+    type: 'conference',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+  // 2016
+  {
+    id: 16,
+    year: 2016,
+    title: 'RoboHydra: A Modular, Reconfigurable, and Scalable Robotic Platform for Multi-Robot Research',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2016',
+    type: 'conference',
+    review: false,
+    pdfUrl: null,
+    arxivUrl: null,
+    codeUrl: null,
+  },
+  // 2015
+  {
+    id: 17,
+    year: 2015,
+    title: 'RoboHydra: A Modular, Reconfigurable, and Scalable Robotic Platform for Multi-Robot Research',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Nathaniel Rose, Parikshit Maini',
+    venue: 'CoRR 2015',
     type: 'conference',
     review: false,
     pdfUrl: null,
@@ -211,6 +305,8 @@ const publicationsByYear = computed(() => {
 function typeLabel(type) {
   if (type === 'journal') return 'Journal'
   if (type === 'workshop') return 'Workshop'
+  if (type === 'presentation') return 'Presentation'
+  if (type === 'letter') return 'Letter'
   return 'Conference'
 }
 </script>

@@ -10,38 +10,43 @@
 
         <!-- Nav Links — scrollable if content overflows -->
         <div class="nav-scroll-area">
-          <v-list nav density="compact" class="px-2">
-            <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'research' }" title="Research" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-1" />
-            <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-1" />
+          <v-list nav density="compact" class="px-2" base-color="primary" active-color="primary" style="background: transparent;">
+            <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'research' }" title="Research" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-2" />
           </v-list>
         </div>
 
         <!-- Footer info at bottom of sidebar — always visible -->
         <div class="pa-4 flex-shrink-0">
           <v-divider class="opacity-30 mb-3" />
+          
+          <!-- Image above footer text -->
+          <!--<div class="d-flex justify-center mb-3">
+            <img src="/images/sidebar-footer.png" alt="" style="max-width: 50%; height: auto;" />
+          </div>
+        -->
           <div class="sidebar-footer-text mb-1">
             <a href="https://www.unr.edu" target="_blank" class="footer-link">University of Nevada, Reno</a>
           </div>
-          <!-- <div class="sidebar-footer-text">
-            <a href="https://www.unr.edu/cse" target="_blank" class="footer-link">unr.edu/cse</a>
-          </div> -->
         </div>
 
       </div>
     </v-navigation-drawer>
 
     <!-- Page Content with slide transition -->
-    <v-main style="overflow: hidden;">
-      <router-view v-slot="{ Component }">
-        <Transition :name="transitionName" mode="out-in">
-          <component :is="Component" :key="$route.name" />
-        </Transition>
-      </router-view>
+    <v-main>
+      <div class="page-wrapper">
+        <router-view v-slot="{ Component }">
+          <Transition :name="transitionName" mode="out-in">
+            <component :is="Component" :key="$route.name" />
+          </Transition>
+        </router-view>
+      </div>
     </v-main>
 
   </v-app>
@@ -66,8 +71,15 @@ watch(route, (to, from) => {
 
 <style scoped>
 .nav-item {
-  font-size: 0.875rem;
-  font-weight: 500;
+  min-height: 40px;
+  margin-right: 12px;
+  background: white !important;
+  border-radius: 8px;
+}
+
+.nav-item :deep(.v-list-item-title) {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Takes up remaining space and scrolls if nav links overflow */
@@ -109,13 +121,23 @@ watch(route, (to, from) => {
 }
 
 /* ── Slide transitions ───────────────────────────────────────────────────── */
+.page-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,
 .slide-right-leave-active {
   transition: transform 900ms ease, opacity 900ms ease;
   position: absolute;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .slide-left-enter-from  { transform: translateX(100%);  opacity: 0; }

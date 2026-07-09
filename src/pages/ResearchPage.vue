@@ -45,7 +45,7 @@
               <v-img
                 :src="project.images[0].src"
                 rounded="lg"
-                max-height="220"
+                max-height="400"
                 cover
               />
             </div>
