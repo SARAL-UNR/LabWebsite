@@ -19,22 +19,21 @@
         flat border
         class="course-card mb-3 pa-5"
       >
-        <div class="d-flex align-start flex-wrap" style="gap: 16px;">
+        <div class="d-flex align-start" style="gap: 16px;">
 
-          <!-- Course code badge -->
-          <div class="course-code-badge flex-shrink-0">
-            {{ course.code }}
+          <!-- Left: code + term -->
+          <div class="course-left flex-shrink-0">
+            <div class="course-code-badge mb-2">{{ course.code }}</div>
+            <div class="course-meta text-medium-emphasis">{{ course.term }}</div>
           </div>
 
-          <!-- Content -->
+          <!-- Right: name + description -->
           <div class="flex-grow-1">
             <div class="course-name mb-1">{{ course.name }}</div>
-            <div class="course-meta text-medium-emphasis mb-2">{{ course.term }}</div>
             <div v-if="course.description" class="course-description text-medium-emphasis">
               {{ course.description }}
             </div>
           </div>
-
         </div>
       </v-card>
     </div>
@@ -52,22 +51,21 @@
         flat border
         class="course-card past-course-card mb-3 pa-5"
       >
-        <div class="d-flex align-start flex-wrap" style="gap: 16px;">
+        <div class="d-flex align-start" style="gap: 16px;">
 
-          <!-- Course code badge -->
-          <div class="course-code-badge past-badge flex-shrink-0">
-            {{ course.code }}
+          <!-- Left: code + term -->
+          <div class="course-left flex-shrink-0">
+            <div class="course-code-badge mb-2">{{ course.code }}</div>
+            <div class="course-meta text-medium-emphasis">{{ course.term }}</div>
           </div>
 
-          <!-- Content -->
+          <!-- Right: name + description -->
           <div class="flex-grow-1">
             <div class="course-name mb-1">{{ course.name }}</div>
-            <div class="course-meta text-medium-emphasis mb-2">{{ course.term }}</div>
             <div v-if="course.description" class="course-description text-medium-emphasis">
               {{ course.description }}
             </div>
           </div>
-
         </div>
       </v-card>
     </div>
@@ -209,6 +207,11 @@ const resources = ref([
 .course-description {
   font-size: 0.875rem;
   line-height: 1.6;
+}
+
+.course-left {
+  width: 120px;
+  text-align: center;
 }
 
 /* Resource cards */

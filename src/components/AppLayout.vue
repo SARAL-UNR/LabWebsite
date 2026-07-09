@@ -71,15 +71,21 @@ watch(route, (to, from) => {
 
 <style scoped>
 .nav-item {
-  min-height: 40px;
+  min-height: 48px;
   margin-right: 12px;
   background: white !important;
-  border-radius: 8px;
+  overflow: visible !important;
 }
 
 .nav-item :deep(.v-list-item-title) {
   font-size: 1rem;
   font-weight: 600;
+  overflow: visible !important;
+  line-height: 1.6;
+}
+
+.nav-item :deep(.v-list-item__content) {
+  overflow: visible !important;
 }
 
 /* Takes up remaining space and scrolls if nav links overflow */
