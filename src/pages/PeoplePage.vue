@@ -115,12 +115,12 @@ const people = ref([
   },
   {
     id: 6,
-    slug: 'jairo-cadena-mendez',
+    slug: 'https://www.linkedin.com/in/jairo-cadena-mendez/',
     name: 'Jairo Cadena-Mendez',
     description: "Master's Student",
     group: "Master's Students",
     years: '2025 - Present',
-    photo: `${import.meta.env.BASE_URL}images/people/jairo-cadena-mendez.png`,
+    photo: `${import.meta.env.BASE_URL}images/people/jairo-cadena-mendez.jpg`,
   },
   {
     id: 7,
