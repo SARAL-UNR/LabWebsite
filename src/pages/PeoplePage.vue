@@ -77,7 +77,7 @@ const people = ref([
   // PhD Students
   {
     id: 2,
-    slug: 'arif-ahmed',
+    slug: 'https://arifahmed.net/',
     name: 'Arif Ahmed',
     description: 'PhD Student',
     group: 'PhD Students',
@@ -119,7 +119,7 @@ const people = ref([
     name: 'Jairo Cadena-Mendez',
     description: "Master's Student",
     group: "Master's Students",
-    years: '2025 - Present',
+    years: '2026 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/jairo-cadena-mendez.jpg`,
   },
   {
@@ -145,12 +145,12 @@ const people = ref([
   }, 
   {
     id: 13,
-    slug: 'vansh-sachdeva',
+    slug: 'https://www.linkedin.com/in/vansh-sachdeva-b367a033b/',
     name: 'Vansh Sachdeva',
     description: "Undergraduate",
     group: "Undergraduates",
     years: '2026 - Present',
-    photo: `${import.meta.env.BASE_URL}images/people/vansh-sachdeva.png`,
+    photo: `${import.meta.env.BASE_URL}images/people/vansh-sachdeva.jpg`,
   },
 
   // Alumni — no slug needed, no individual page
