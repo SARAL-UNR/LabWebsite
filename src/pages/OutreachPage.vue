@@ -110,7 +110,7 @@ const events = ref([
     id: 1,
     type: 'upcoming',
     name: 'College of Engineering Summer Camp',
-    description: 'Description here',
+    description: 'Outreach event at the College of Engineering summer camp for local youth.',
     location: 'University of Nevada, Reno',
     date: '2026-06-24',
   },
@@ -118,7 +118,7 @@ const events = ref([
     id: 2,
     type: 'upcoming',
     name: '4-H Summer Camp',
-    description: 'Description here',
+    description: 'Outreach event at the 4-H summer camp for local youth.',
     location: '4-H Camp',
     date: '2026-07-29',
   }

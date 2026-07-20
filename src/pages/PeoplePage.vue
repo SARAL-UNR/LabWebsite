@@ -143,12 +143,14 @@ const people = ref([
     years: '2026 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/yovan-hirales.png`,
   }, 
+
+  // Interns
   {
     id: 13,
     slug: 'https://www.linkedin.com/in/vansh-sachdeva-b367a033b/',
     name: 'Vansh Sachdeva',
-    description: "Undergraduate",
-    group: "Undergraduates",
+    description: "Intern",
+    group: "Interns",
     years: '2026 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/vansh-sachdeva.jpg`,
   },
@@ -192,7 +194,7 @@ const people = ref([
   } */
 ])
 
-const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Phd Alumni", "Master's Alumni", "Bachelor's Alumni", "Former REU Students"]
+const groupOrder = ["Lab Director", "PhD Students", "Master's Students", "Undergraduates", "Interns", "Phd Alumni", "Master's Alumni", "Bachelor's Alumni", "Previous Interns", "Former REU Students"]
 
 const groups = computed(() =>
   groupOrder

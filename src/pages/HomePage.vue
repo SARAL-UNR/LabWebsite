@@ -99,20 +99,20 @@ const slides = ref([
 // Each entry supports: id, date, title, body (optional), link (optional)
 // link can be an internal path (e.g. '/research') or an external URL
 const news = ref([
-  {
-    id: 1,
-    date: 'Date here',
-    title: 'Title here',
-    body: 'Description here',
-    link: 'https://www.unr.edu/',
-  },
-  {
-    id: 2,
-    date: 'Date here',
-    title: 'Title here',
-    body: 'Description here',
-    link: '',
-  }
+  //{
+  //  id: 1,
+  //    date: 'Date here',
+  //    title: 'Title here',
+  //    body: 'Description here',
+  //    link: 'https://www.unr.edu/',
+  //  },
+  // {
+  //  id: 2,
+  //    date: 'Date here',
+  //    title: 'Title here',
+  //    body: 'Description here',
+  //    link: '',
+  //  }
 ])
 </script>
 

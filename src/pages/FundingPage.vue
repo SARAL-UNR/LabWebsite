@@ -95,22 +95,22 @@ import AppLayout from '@/components/AppLayout.vue'
 // Add a logo field pointing to an image in public/images/funding/
 // Leave logo as '' to show the fallback icon instead.
 const funding = ref([
-  {
-    id: 1,
-    type: 'Current',
-    agency: 'Agency here',
-    title: 'Title here',
-    amount: '<- Example photo. Amount with timeframe here',
-    logo: `${import.meta.env.BASE_URL}images/funding/testfd1.jpeg`,
-  },
-  {
-    id: 2,
-    type: 'Previous',
-    agency: 'Agency here',
-    title: 'Title here',
-    amount: 'Amount with timeframe here',
-    logo: `${import.meta.env.BASE_URL}images/funding/doe.png`,
-  }
+  // {
+  //    id: 1,
+  //    type: 'Current',
+  //    agency: 'Agency here',
+  //    title: 'Title here',
+  //    amount: '<- Example photo. Amount with timeframe here',
+  //    logo: `${import.meta.env.BASE_URL}images/funding/testfd1.jpeg`,
+  //  },
+  //{
+  //  id: 2,
+  //    type: 'Previous',
+  //    agency: 'Agency here',
+  //    title: 'Title here',
+  //    amount: 'Amount with timeframe here',
+  //    logo: `${import.meta.env.BASE_URL}images/funding/doe.png`,
+  //  }
 ])
 
 const currentFunding = computed(() => funding.value.filter(f => f.type === 'Current'))

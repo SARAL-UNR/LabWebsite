@@ -126,27 +126,27 @@ const pastCourses = ref([
     id: 1,
     code: 'CS 477',
     name: 'Analysis of Algorithms',
-    term: 'Term Here',
+    term: '',
     description: 'Analysis and design of algorithms on sequences, sets, graphs and trees. Geometric, algebraic and numeric algorithms, FFTs, reductions. Parallel algorithms.',
   },
   {
     id: 2,
     code: 'CS 491',
     name: 'Advanced Mobile Robots',
-    term: 'Term Here',
-    description: 'Description here',
+    term: '',
+    description: '',
   }
 ])
 
 // ── Resource data ─────────────────────────────────────────────────────────────
 const resources = ref([
-  {
-    id: 1,
-    name: 'Name Here',
-    description: 'Description here',
-    link: 'https://docs.ros.org',
-    icon: 'mdi-robot-outline',
-  }
+  //{
+  //  id: 1,
+  //  name: 'Name Here',
+  //    description: 'Description here',
+  //    link: 'https://docs.ros.org',
+  //    icon: 'mdi-robot-outline',
+  //  }
 ])
 </script>
 
