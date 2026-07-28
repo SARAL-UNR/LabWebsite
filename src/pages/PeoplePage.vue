@@ -66,11 +66,11 @@ const people = ref([
   // Lab Director
   {
     id: 1,
-    slug: 'https://www.unr.edu',
+    slug: 'https://www.parikshitmaini.com/',
     name: 'Dr. Parikshit Maini',
     description: 'Principal Investigator',
     group: 'Lab Director',
-    years: '2018 - Present',
+    years: '2023 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/parikshit-maini.png`,
   },
 
@@ -81,7 +81,7 @@ const people = ref([
     name: 'Arif Ahmed',
     description: 'PhD Student',
     group: 'PhD Students',
-    years: '2018 - Present',
+    years: '2023 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/arif-ahmed.png`,
   },
   {
@@ -90,7 +90,7 @@ const people = ref([
     name: 'Nathaniel Rose',
     description: 'PhD Student',
     group: 'PhD Students',
-    years: '2018 - Present',
+    years: '2023 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/nathaniel-rose.png`,
   },
 
@@ -101,16 +101,16 @@ const people = ref([
     name: 'Hannah Chuang',
     description: "Master's Student",
     group: "Master's Students",
-    years: '2018 - Present',
+    years: '2024 - 2026',
     photo: `${import.meta.env.BASE_URL}images/people/hannah-chuang.png`,
   },
   {
     id: 5,
-    slug: 'emanuel-gutierrez-cornejo',
+    slug: 'https://www.linkedin.com/in/emanuel-gutierrez-b91352250/',
     name: 'Emanuel Gutierrez-Cornejo',
     description: "Master's Student",
     group: "Master's Students",
-    years: '2018 - Present',
+    years: '2024 - Present',
     photo: `${import.meta.env.BASE_URL}images/people/emanuel-gutierrez-cornejo.png`,
   },
   {
@@ -136,7 +136,7 @@ const people = ref([
   // Undergraduates
   {
     id: 8,
-    slug: 'yovan-hirales',
+    slug: 'https://www.linkedin.com/in/yovan-hirales/',
     name: 'Yovan Hirales',
     description: 'Undergraduate',
     group: 'Undergraduates',

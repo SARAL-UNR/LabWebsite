@@ -1,9 +1,14 @@
 <template>
   <v-app :theme="theme">
 
-    <!-- Left Sidebar Navigation -->
-    <v-navigation-drawer permanent color="primary" width="220">
-
+    <!-- Sidebar — permanent on desktop, temporary (drawer) on mobile -->
+    <v-navigation-drawer
+      v-model="drawer"
+      :permanent="!isMobile"
+      :temporary="isMobile"
+      color="primary"
+      width="220"
+    >
       <div class="d-flex flex-column fill-height">
 
         <v-divider class="opacity-30 mb-0 flex-shrink-0" />
@@ -11,25 +16,19 @@
         <!-- Nav Links — scrollable if content overflows -->
         <div class="nav-scroll-area">
           <v-list nav density="compact" class="px-2" base-color="primary" active-color="primary" style="background: transparent;">
-            <v-list-item :to="{ name: 'home' }" title="Home" rounded="lg" class="nav-item mb-2" />
-            <v-list-item :to="{ name: 'people' }" title="People" rounded="lg" class="nav-item mb-2" />
-            <v-list-item :to="{ name: 'research' }" title="Research" rounded="lg" class="nav-item mb-2" />
-            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-2" />
-            <v-list-item :to="{ name: 'funding' }" title="Funding" rounded="lg" class="nav-item mb-2" />
-            <v-list-item :to="{ name: 'teaching' }" title="Teaching" rounded="lg" class="nav-item mb-2" />
-            <v-list-item :to="{ name: 'outreach' }" title="Outreach" rounded="lg" class="nav-item mb-2" />
+            <v-list-item :to="{ name: 'home' }"         title="Home"         rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
+            <v-list-item :to="{ name: 'people' }"       title="People"       rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
+            <v-list-item :to="{ name: 'research' }"     title="Research"     rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
+            <v-list-item :to="{ name: 'publications' }" title="Publications" rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
+            <v-list-item :to="{ name: 'funding' }"      title="Funding"      rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
+            <v-list-item :to="{ name: 'teaching' }"     title="Teaching"     rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
+            <v-list-item :to="{ name: 'outreach' }"     title="Outreach"     rounded="lg" class="nav-item mb-2" @click="closeDrawer" />
           </v-list>
         </div>
 
         <!-- Footer info at bottom of sidebar — always visible -->
         <div class="pa-4 flex-shrink-0">
           <v-divider class="opacity-30 mb-3" />
-          
-          <!-- Image above footer text -->
-          <!--<div class="d-flex justify-center mb-3">
-            <img src="/images/sidebar-footer.png" alt="" style="max-width: 50%; height: auto;" />
-          </div>
-        -->
           <div class="sidebar-footer-text mb-1">
             <a href="https://www.unr.edu" target="_blank" class="footer-link">University of Nevada, Reno</a>
           </div>
@@ -37,6 +36,16 @@
 
       </div>
     </v-navigation-drawer>
+
+    <!-- Top app bar — only shown on mobile -->
+    <v-app-bar v-if="isMobile" flat border="b" color="primary" height="56">
+      <v-app-bar-title class="mobile-title">UNR SARAL</v-app-bar-title>
+      <template v-slot:append>
+        <v-btn icon @click="drawer = !drawer">
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+      </template>
+    </v-app-bar>
 
     <!-- Page Content with slide transition -->
     <v-main>
@@ -53,12 +62,31 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const theme = ref('light')
 const route = useRoute()
 const transitionName = ref('slide-left')
+const drawer = ref(window.innerWidth >= 768)
+const windowWidth = ref(window.innerWidth)
+
+// Breakpoint — below 768px is considered mobile
+const isMobile = computed(() => windowWidth.value < 768)
+
+function onResize() {
+  windowWidth.value = window.innerWidth
+  if (!isMobile.value) {
+    drawer.value = true  
+  }
+}
+
+function closeDrawer() {
+  if (isMobile.value) drawer.value = false
+}
+
+onMounted(() => window.addEventListener('resize', onResize))
+onUnmounted(() => window.removeEventListener('resize', onResize))
 
 const pageOrder = ['home', 'publications', 'research', 'research-individual', 'people', 'people-individual', 'funding', 'outreach', 'teaching']
 
@@ -70,6 +98,11 @@ watch(route, (to, from) => {
 </script>
 
 <style scoped>
+.mobile-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .nav-item {
   min-height: 48px;
   margin-right: 12px;
@@ -88,12 +121,10 @@ watch(route, (to, from) => {
   overflow: visible !important;
 }
 
-/* Takes up remaining space and scrolls if nav links overflow */
 .nav-scroll-area {
   flex: 1 1 0;
   overflow-y: auto;
   min-height: 0;
-  /* Thin scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
@@ -103,11 +134,11 @@ watch(route, (to, from) => {
 }
 
 .nav-scroll-area::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0);
+  background: transparent;
 }
 
 .nav-scroll-area::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
 }
 

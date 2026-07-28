@@ -102,7 +102,7 @@ const news = ref([
   //{
   //  id: 1,
   //    date: 'Date here',
-  //    title: 'Title here',
+  //    title: 'Hannah's Thesis Defense',
   //    body: 'Description here',
   //    link: 'https://www.unr.edu/',
   //  },

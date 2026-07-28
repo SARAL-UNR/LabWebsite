@@ -18,6 +18,30 @@
       <h1 class="project-title mb-2">{{ project.title }}</h1>
       <div class="project-meta text-medium-emphasis mb-6">{{ project.date }}</div>
 
+      <!-- People -->
+      <div v-if="project.team && project.team.length > 0" class="mb-8">
+        <div class="d-flex align-center mb-3">
+          <span class="section-label mr-4">Team</span>
+          <v-divider />
+        </div>
+        <div class="d-flex flex-wrap" style="gap: 4px;">
+          <v-btn
+            v-for="member in project.team"
+            :key="member.name"
+            v-bind="member.slug.startsWith('http')
+              ? { href: member.slug, target: '_blank' }
+              : { to: { name: 'people-individual', params: { slug: member.slug } } }"
+            variant="tonal"
+            color="primary"
+            size="small"
+            prepend-icon="mdi-account"
+            class="link-btn"
+          >
+            {{ member.name }}
+          </v-btn>
+        </div>
+      </div>
+
       <!-- Description -->
       <div v-if="project.description" class="mb-8">
         <div class="d-flex align-center mb-3">
@@ -94,30 +118,6 @@
         </v-card>
       </div>
 
-      <!-- People -->
-      <div v-if="project.team && project.team.length > 0" class="mb-8">
-        <div class="d-flex align-center mb-3">
-          <span class="section-label mr-4">Team</span>
-          <v-divider />
-        </div>
-        <div class="d-flex flex-wrap" style="gap: 4px;">
-          <v-btn
-            v-for="member in project.team"
-            :key="member.name"
-            v-bind="member.slug.startsWith('http')
-              ? { href: member.slug, target: '_blank' }
-              : { to: { name: 'people-individual', params: { slug: member.slug } } }"
-            variant="tonal"
-            color="primary"
-            size="small"
-            prepend-icon="mdi-account"
-            class="link-btn"
-          >
-            {{ member.name }}
-          </v-btn>
-        </div>
-      </div>
-
     </div>
 
     <!-- 404 fallback -->
@@ -143,12 +143,12 @@ const projects = [
     slug: 'robohydra',
     title: 'RoboHydra',
     people: 'Dominic Palmieri, Emanuel Gutierrez-Cornejo',
-    date: '2026 - Present',
-    description: `Full description of the RoboHydra project goes here.`,
-    highlights: ['Multi-arm manipulation', 'Autonomous coordination', 'Real-time control'],
+    date: 'Aug 2026 - Present',
+    description: `The RoboHydra is an autonomous ground robot designed for use in sheep grazing environments to premote uniform grazing patterns and monitor flock health`,
+    highlights: ['Autonomous fluid transportation', 'Stability prediction', 'Livestock-robot interaction'],
     images: [
-      { src: `${import.meta.env.BASE_URL}images/projects/Hydra1.png`, caption: 'RoboHydra system overview' },
-      { src: `${import.meta.env.BASE_URL}images/projects/Hydra2.png`, caption: '' },
+      //{ src: `${import.meta.env.BASE_URL}images/projects/Hydra1.png`, caption: 'RoboHydra system overview' },
+      //{ src: `${import.meta.env.BASE_URL}images/projects/Hydra2.png`, caption: '' },
     ],
     publications: [],
     team: [
@@ -179,9 +179,9 @@ const projects = [
     slug: 'stability-aware-navigation',
     title: 'Stability Aware Navigation',
     people: 'Emanuel Gutierrez-Cornejo, Arif Ahmed, Nathaniel Rose, Dominic Palmieri',
-    date: 'DATES HERE',
+    date: 'June 2024 - Present',
     description: `The goal is to predict a robot stability score between 0 and 1. We do this by training a novel vision-based stability metric using count-circle-crossings (C3) score. The method is a data-based learning network trained on C3 score to learn current stability from IMU and velocity.`,
-    highlights: ['Stability prediction', 'IMU sensing', 'Deep learning', 'C3 score'],
+    highlights: ['Stability prediction', 'IMU sensing', 'Deep learning'],
     images: [
       { src: `${import.meta.env.BASE_URL}images/projects/C31.png`, caption: '' },
       { src: `${import.meta.env.BASE_URL}images/projects/C32.jpeg`, caption: '' },
@@ -200,9 +200,9 @@ const projects = [
     slug: 'plant-phenotyping-lai',
     title: 'Plant Phenotyping: Leaf Area Index (LAI)',
     people: 'Arif Ahmed',
-    date: 'DATES HERE',
+    date: 'Jan 2025 - Current',
     description: `Mobile manipulator and UAV work together to phenotype crops for selecting better yielding irrigation strategies.`,
-    highlights: ['UAV', 'Mobile manipulation', 'Precision agriculture', 'Phenotyping'],
+    highlights: ['Mobile manipulation', 'Precision agriculture', 'Phenotyping'],
     images: [
       { src: `${import.meta.env.BASE_URL}images/projects/LAI1.png`, caption: '' },
       { src: `${import.meta.env.BASE_URL}images/projects/LAI2.png`, caption: '' },
@@ -221,16 +221,15 @@ const projects = [
   {
     slug: 'robotics-ai-plant-breeding',
     title: 'Autonomous Drone Sprayer',
-    people: '*Arif Ahmed, Jairo Cadena-Mendez, Yovan Hirales',
-    date: 'DATES HERE',
+    people: 'Jairo Cadena-Mendez, Yovan Hirales',
+    date: 'Sep 2026 - Present',
     description: `Drone based precision spraying of agrochemicals on a field-wide scale. Work with farmers and breeders to apply treatments to corn, sorghum, and onion crops.`,
-    highlights: ['Precision spraying', 'Drone systems', 'Plant breeding', 'Agronomy'],
+    highlights: ['Precision spraying', 'Plant breeding', 'Agronomy'],
     images: [
       { src: `${import.meta.env.BASE_URL}images/projects/Spray1.png`, caption: '' },
     ],
     publications: [],
     team: [
-      { name: 'Arif Ahmed', slug: 'arif-ahmed' },
       { name: 'Jairo Cadena-Mendez', slug: 'jairo-cadena-mendez' },
       { name: 'Yovan Hirales', slug: 'yovan-hirales' },
     ],
@@ -238,18 +237,17 @@ const projects = [
   {
     slug: 'ground-air-robotics',
     title: 'Ground-Air Robotics',
-    people: 'Jairo Cadena-Mendez, Yovan Hirales',
+    people: 'Jairo Cadena-Mendez',
     date: 'DATES HERE',
     description: `Description Here`,
-    highlights: ['Ground robotics', 'Aerial robotics', 'Integration', 'Agricultural applications'],
+    highlights: ['Ground-air robotics', 'Multi-robot systems', 'Robotic coordination'],
     images: [
       { src: `${import.meta.env.BASE_URL}images/projects/GAC1.png`, caption: '' },
       { src: `${import.meta.env.BASE_URL}images/projects/GAC2.png`, caption: '' },
     ],
     publications: [],
     team: [
-      { name: 'Arif Ahmed', slug: 'arif-ahmed' },
-      { name: 'Nathaniel Rose', slug: 'nathaniel-rose' },
+      { name: 'Jairo Cadena-Mendez', slug: 'jairo-cadena-mendez' },
     ],
   }
 ]

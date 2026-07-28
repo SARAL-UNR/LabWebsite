@@ -70,7 +70,7 @@ const projects = ref([
     title: 'RoboHydra',
     images: [
       {
-        src: `${import.meta.env.BASE_URL}images/projects/Hydra2.png`,
+        //src: `${import.meta.env.BASE_URL}images/projects/Hydra2.png`,
         caption: 'RoboHydra',
       },
     ],

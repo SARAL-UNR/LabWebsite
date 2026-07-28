@@ -29,19 +29,17 @@
       >
         <div class="flex-grow-1">
 
-          <!-- Title -->
-          <div class="pub-title mb-1">{{ pub.title }}</div>
+        <!-- Title -->
+        <div class="pub-title mb-1">{{ pub.title }}</div>
 
-          <!-- Authors -->
-          <div class="pub-authors text-medium-emphasis mb-2">{{ pub.authors }}</div>
+        <!-- Authors -->
+        <div class="pub-authors text-medium-emphasis mb-1">{{ pub.authors }}</div>
 
-          <!-- Venue + type tag + links -->
-          <div class="d-flex align-center flex-wrap" style="gap: 4px;">
+        <!-- Venue as plain text -->
+        <div class="pub-venue text-medium-emphasis mb-2">{{ pub.venue }}</div>
 
-            <!-- Venue (no color) -->
-            <v-chip size="small" variant="tonal" label class="venue-chip">
-              {{ pub.venue }}
-            </v-chip>
+        <!-- Type tag + links -->
+        <div class="d-flex align-center flex-wrap" style="gap: 4px;">
 
             <!-- Type tag -->
             <v-chip size="small" variant="outlined" label class="type-chip">
@@ -117,9 +115,9 @@ const publications = ref([
     year: 2026,
     title: 'Review and Evaluation of Point-Cloud based Leaf Surface Reconstruction Methods for Agricultural Applications',
     authors: 'A Ahmed, P Maini',
-    venue: 'CoRL 2026',
-    type: 'journal',
-    review: false,
+    venue: 'arXiv preprint arXiv:2604.03328',
+    type: 'preprint',
+    review: true,
     arxivUrl: 'https://arxiv.org/abs/2604.03328',
   },
 
@@ -127,182 +125,186 @@ const publications = ref([
   {
     id: 2,
     year: 2025,
-    title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
-    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
-    venue: 'RSS 2025',
-    type: 'workshop',
+    title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
+    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
+    venue: '2025 IEEE 21st International Conference on Automation Science and Engineering (CASE)',
+    type: 'conference',
     review: false,
-    arxivUrl: 'https://arxiv.org/pdf/2507.12731',
+    arxivUrl: 'https://arxiv.org/abs/2507.12716',
+    ieeeUrl: 'https://ieeexplore.ieee.org/document/11163809',
   },
   {
     id: 3,
     year: 2025,
-    title: 'SARAL-Bot: Autonomous Robot for Strawberry Plant Care',
-    authors: 'Arif Ahmed, Ritvik Agarwal, Gaurav Srikar, Nathaniel Rose, Parikshit Maini',
-    venue: 'CoRR 2025',
-    type: 'journal',
+    title: 'Online Planning for Cooperative Air-Ground Robot Systems with Unknown Fuel Requirements',
+    authors: 'Ritvik Agarwal, Behnoushsadat Hatami, Alvika Gautam, Parikshit Maini',
+    venue: 'arXiv preprint arXiv:2506.20804',
+    type: 'preprint',
     review: false,
-    arxivUrl: 'https://arxiv.org/pdf/2506.06798',
+    arxivUrl: 'https://arxiv.org/abs/2506.20804',
   },
   {
     id: 4,
     year: 2025,
-    title: 'MoistureMapper: An Autonomous Mobile Robot for High-Resolution Soil Moisture Mapping at Scale',
-    authors: 'Nathaniel Rose, Hannah Chuang, Manuel A Andrade-Rodriguez, Rishi Parashar, Dani Or, Parikshit Maini',
-    venue: 'IEEE 2025',
-    type: 'conference',
+    title: 'SARAL-Bot: Autonomous Robot for Strawberry Plant Care',
+    authors: 'Arif Ahmed, Ritvik Agarwal, Gaurav Srikar, Nathaniel Rose, Parikshit Maini',
+    venue: 'arXiv preprint arXiv:2506.06798',
+    type: 'preprint',
     review: false,
-    arxivUrl: 'https://arxiv.org/pdf/2507.12716',
+    arxivUrl: 'https://arxiv.org/abs/2506.06798',
   },
   {
     id: 5,
     year: 2025,
-    title: 'Online Planning for Cooperative Air-Ground Robot Systems with Unknown Fuel Requirements',
-    authors: 'Ritvik Agarwal, Behnoushsadat Hatami, Alvika Gautam, Parikshit Maini',
-    venue: 'CoRR 2025',
-    type: 'Journal',
+    title: 'Learning to Predict Mobile Robot Stability in Off-Road Environments',
+    authors: 'Nathaniel Rose, Arif Ahmed, Emanuel Gutierrez-Cornejo, Parikshit Maini',
+    venue: 'RSS 2025 Workshop on Resilient Off-road Autonomous Robotics (ROAR)',
+    type: 'workshop',
     review: false,
-    arxivUrl: 'https://arxiv.org/pdf/2506.20804',
+    arxivUrl: 'https://arxiv.org/abs/2507.12731',
+    openReviewUrl: 'https://openreview.net/forum?id=822qfWfWwy',
   },
 
   // 2023
   {
-    id: 9,
+    id: 6,
     year: 2023,
     title: 'Wheat Stem Rust Detection with RGB images captured on the Farm using a hand-held camera',
-    authors: 'P Maini, P Tokekar, PB Sujit',
+    authors: 'R M Moorthy, P Maini, M Rouse, C Yang, S Kianian, V Isler',
     venue: 'ASABE 2023',
-    type: 'presentation',
+    type: 'poster presentation',
     review: false,
   },
 
   // 2022
   {
-    id: 10,
+    id: 7,
     year: 2022,
     title: 'Online coverage planning for an autonomous weed mowing robot with curvature constraints',
     authors: 'Parikshit Maini, Burak M Gonultas, Volkan Isler',
-    venue: 'IEEE 2022',
-    type: 'letter',
+    venue: 'IEEE Robotics and Automation Letters, Vol. 7, No. 2, pp. 5445-5452',
+    type: 'journal',
     review: false,
-    arxivUrl: 'https://arxiv.org/pdf/2111.10462',
+    arxivUrl: 'https://arxiv.org/abs/2111.10462',
+    ieeeUrl: 'https://ieeexplore.ieee.org/document/9720982',
   },
 
   // 2021
   {
-    id: 11,
+    id: 8,
     year: 2021,
     title: 'Visual monitoring of points of interest on a 2.5 D terrain using a UAV with limited field-of-view constraint',
     authors: 'Parikshit Maini, Pratap Tokekar, PB Sujit',
-    venue: 'IEEE 2021',
+    venue: 'IEEE Transactions on Aerospace and Electronic Systems, Vol. 57, No. 6, pp. 3661-3672',
     type: 'journal',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/9439154',
+    arxivUrl: 'https://arxiv.org/abs/1903.07363',
+    doi: '10.1109/TAES.2021.3082668',
   },
 
   // 2020
   {
-    id: 12,
+    id: 9,
     year: 2020,
     title: 'Choosing Classification Thresholds for Mobile Robot Coverage',
     authors: 'Parikshit Maini, Volkan Isler',
-    venue: 'IROS 2020',
+    venue: '2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/9340969',
+    ieeeUrl: 'https://ieeexplore.ieee.org/document/9340969',
   },
   {
-    id: 18,
+    id: 10,
     year: 2020,
     title: 'Visibility-based persistent monitoring of piecewise linear features on a terrain using multiple aerial and ground robots',
     authors: 'Parikshit Maini, Pratap Tokekar, PB Sujit',
-    venue: 'IEEE 2020',
+    venue: 'IEEE Transactions on Automation Science and Engineering, Vol. 18, No. 4, pp. 1692-1704',
     type: 'journal',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/9174665',
+    ieeeUrl: 'https://ieeexplore.ieee.org/document/9174665',
   },
   {
-    id: 19,
+    id: 11,
     year: 2020,
     title: 'Path planning algorithms for single and multiple mobile robot systems',
     authors: 'Parikshit Maini, PB Sujit',
-    venue: 'IIID 2020',
-    type: 'conference',
+    venue: 'IIIT-Delhi',
+    type: 'PhD dissertation',
     review: false,
     pdfUrl: 'https://repository.iiitd.edu.in/xmlui/handle/123456789/827',
   },
 
-  //2019
+  // 2019
   {
-    id: 6,
+    id: 12,
     year: 2019,
     title: 'Route planning for cooperative air-ground robots with fuel constraints: an approach based on CMSA',
     authors: 'Divansh Arora, Parikshit Maini, Pedro Pinacho-Davidson, Christian Blum',
-    venue: 'Proceedings of the genetic and evolutionary computation conference',
+    venue: 'Proceedings of the Genetic and Evolutionary Computation Conference (GECCO), pp. 207-214',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/3321707.3321820',  
+    pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/3321707.3321820',
   },
   {
     id: 13,
     year: 2019,
     title: 'Cooperative aerial-ground vehicle route planning with fuel constraints for coverage applications',
     authors: 'Parikshit Maini, Kaarthik Sundar, Mandeep Singh, Sivakumar Rathinam, PB Sujit',
-    venue: 'IEEE 2019',
+    venue: 'IEEE Transactions on Aerospace and Electronic Systems, Vol. 55, No. 6, pp. 3016-3028',
     type: 'journal',
     review: false,
     pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8723305',
   },
   {
-    id: 20,
+    id: 14,
     year: 2019,
     title: 'SAC: G: Planning and Coordination for Air-Ground Robots in Persistent Monitoring Applications with Visibility Constraints',
     authors: 'Parikshit Maini',
-    venue: 'NA',
-    type: 'NA',
+    venue: 'ACM Student Research Competition / NSF award abstract',
+    type: 'award/grant abstract',
     review: false,
     pdfUrl: 'https://src.acm.org/binaries/content/assets/src/2019/parikshit-maini.pdf',
   },
 
   // 2018
   {
-    id: 14,
+    id: 15,
     year: 2018,
     title: 'Persistent monitoring with refueling on a terrain using a team of aerial and ground robots',
     authors: 'Parikshit Maini, Kevin Yu, PB Sujit, Pratap Tokekar',
-    venue: 'IROS 2018',
+    venue: '2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
     type: 'conference',
     review: false,
     pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8593508',
   },
   {
-    id: 21,
+    id: 16,
     year: 2018,
     title: 'Visibility-based monitoring of a path using a heterogeneous robot team',
     authors: 'Parikshit Maini, Gautam Gupta, Pratap Tokekar, PB Sujit',
-    venue: 'IROS 2018',
+    venue: '2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
     type: 'conference',
     review: false,
     pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8593960',
   },
   {
-    id: 22,
+    id: 17,
     year: 2018,
     title: 'Cooperative routing with refueling for aerial and ground vehicles for large scale surveillance: Student research abstract',
     authors: 'Parikshit Maini',
-    venue: '33rd Annual ACM Symposium on Applied Computing',
-    type: 'conference',
+    venue: 'Proceedings of the 33rd Annual ACM Symposium on Applied Computing, pp. 847-848',
+    type: 'student research abstract',
     review: false,
     pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/3167132.3167450',
   },
 
   // 2017
   {
-    id: 15,
+    id: 18,
     year: 2017,
     title: 'Curvature constrained trajectory planning for a UAV through a sequence of points: A perturbation approach',
     authors: 'Parikshit Maini, Sivakumar Rathinam, PB Sujit',
-    venue: 'ASCC 2017',
+    venue: '2017 11th Asian Control Conference (ASCC), pp. 1276-1281',
     type: 'conference',
     review: false,
     pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8287354',
@@ -310,11 +312,11 @@ const publications = ref([
 
   // 2016
   {
-    id: 16,
+    id: 19,
     year: 2016,
     title: 'Path planning for a UAV with kinematic constraints in the presence of polygonal obstacles',
     authors: 'Parikshit Maini, PB Sujit',
-    venue: 'ICUAS 2016',
+    venue: '2016 International Conference on Unmanned Aircraft Systems (ICUAS), pp. 62-67',
     type: 'conference',
     review: false,
     pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/7502625',
@@ -322,21 +324,21 @@ const publications = ref([
 
   // 2015
   {
-    id: 17,
+    id: 20,
     year: 2015,
     title: 'On cooperation between a fuel constrained UAV and a refueling UGV for large scale mapping applications',
     authors: 'Parikshit Maini, PB Sujit',
-    venue: 'ICUAS 2015',
+    venue: '2015 International Conference on Unmanned Aircraft Systems (ICUAS), pp. 1370-1377',
     type: 'conference',
     review: false,
     pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/7152432',
   },
   {
-    id: 23,
+    id: 21,
     year: 2015,
     title: 'Distributed task servicing using multiple robots with human-in-the-loop under limited communication range',
     authors: 'Parikshit Maini, PB Sujit',
-    venue: '30th Annual ACM Symposium on Applied Computing',
+    venue: 'Proceedings of the 30th Annual ACM Symposium on Applied Computing, pp. 301-306',
     type: 'conference',
     review: false,
     pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/2695664.2695893',
@@ -356,7 +358,13 @@ function typeLabel(type) {
   if (type === 'workshop') return 'Workshop'
   if (type === 'presentation') return 'Presentation'
   if (type === 'letter') return 'Letter'
-  return 'Conference'
+  if (type === 'poster presentation') return 'Poster Presentation'
+  if (type === 'conference') return 'Conference'
+  if (type === 'PhD dissertation') return 'PhD Dissertation'
+  if (type === 'preprint') return 'Preprint'
+  if (type === 'award/grant abstract') return 'Award/Grant Abstract'
+  if (type === 'student research abstract') return 'Student Research Abstract'
+  return 'Other'
 }
 </script>
 
@@ -392,14 +400,15 @@ function typeLabel(type) {
   line-height: 1.5;
 }
 
-.venue-chip {
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-}
-
 .type-chip {
   font-size: 0.75rem !important;
   font-weight: 500 !important;
+}
+
+.pub-venue {
+  font-size: 0.825rem;
+  font-style: italic;
+  line-height: 1.4;
 }
 
 .link-btn {
