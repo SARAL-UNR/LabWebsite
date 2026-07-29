@@ -160,7 +160,7 @@ const projects = [
     slug: 'rsms',
     title: 'Robotic Soil Moisture Sensing (RSMS)',
     people: 'Nathaniel Rose, Hannah Chung',
-    date: 'DATES HERE',
+    date: 'Jun 2023 - Present',
     description: `The MoistureMapper is an autonomous robot that can measure soil moisture at points of interest of a farm plot. The goal is to build a comprehensive map of the soil moisture across the field.`,
     highlights: ['Autonomous navigation', 'Soil sensing', 'Agricultural robotics'],
     images: [
@@ -200,7 +200,7 @@ const projects = [
     slug: 'plant-phenotyping-lai',
     title: 'Plant Phenotyping: Leaf Area Index (LAI)',
     people: 'Arif Ahmed',
-    date: 'Jan 2025 - Current',
+    date: 'Jan 2025 - Present',
     description: `Mobile manipulator and UAV work together to phenotype crops for selecting better yielding irrigation strategies.`,
     highlights: ['Mobile manipulation', 'Precision agriculture', 'Phenotyping'],
     images: [

@@ -30,7 +30,15 @@
         <div class="flex-grow-1">
 
         <!-- Title -->
-        <div class="pub-title mb-1">{{ pub.title }}</div>
+        <component
+          :is="pub.url ? 'a' : 'div'"
+          :href="pub.url || undefined"
+          target="_blank"
+          class="pub-title mb-1"
+          :class="{ 'pub-title--link': pub.url }"
+        >
+          {{ pub.title }}
+        </component>
 
         <!-- Authors -->
         <div class="pub-authors text-medium-emphasis mb-1">{{ pub.authors }}</div>
@@ -57,45 +65,6 @@
             >
               Review Only
             </v-chip>
-
-            <v-btn
-              v-if="pub.pdfUrl"
-              :href="pub.pdfUrl"
-              target="_blank"
-              variant="text"
-              size="small"
-              prepend-icon="mdi-file-pdf-box"
-              class="link-btn"
-              color="primary"
-            >
-              PDF
-            </v-btn>
-
-            <v-btn
-              v-if="pub.arxivUrl"
-              :href="pub.arxivUrl"
-              target="_blank"
-              variant="text"
-              size="small"
-              prepend-icon="mdi-open-in-new"
-              class="link-btn"
-              color="primary"
-            >
-              arXiv
-            </v-btn>
-
-            <v-btn
-              v-if="pub.codeUrl"
-              :href="pub.codeUrl"
-              target="_blank"
-              variant="text"
-              size="small"
-              prepend-icon="mdi-github"
-              class="link-btn"
-              color="primary"
-            >
-              Code
-            </v-btn>
           </div>
 
         </div>
@@ -110,16 +79,16 @@ import { ref, computed } from 'vue'
 
 const publications = ref([
   // 2026
-  {
-    id: 1,
-    year: 2026,
-    title: 'Review and Evaluation of Point-Cloud based Leaf Surface Reconstruction Methods for Agricultural Applications',
-    authors: 'A Ahmed, P Maini',
-    venue: 'arXiv preprint arXiv:2604.03328',
-    type: 'preprint',
-    review: true,
-    arxivUrl: 'https://arxiv.org/abs/2604.03328',
-  },
+  // {
+  //  id: 1,
+  //  year: 2026,
+  //  title: 'Review and Evaluation of Point-Cloud based Leaf Surface Reconstruction Methods for Agricultural Applications',
+  //  authors: 'A Ahmed, P Maini',
+  //  venue: 'arXiv preprint arXiv:2604.03328',
+  //    type: 'preprint',
+  //    review: true,
+  //    url: 'https://arxiv.org/abs/2604.03328',
+  //  },
 
   // 2025
   {
@@ -130,8 +99,7 @@ const publications = ref([
     venue: '2025 IEEE 21st International Conference on Automation Science and Engineering (CASE)',
     type: 'conference',
     review: false,
-    arxivUrl: 'https://arxiv.org/abs/2507.12716',
-    ieeeUrl: 'https://ieeexplore.ieee.org/document/11163809',
+    url: 'https://ieeexplore.ieee.org/document/11163809',
   },
   {
     id: 3,
@@ -141,7 +109,7 @@ const publications = ref([
     venue: 'arXiv preprint arXiv:2506.20804',
     type: 'preprint',
     review: false,
-    arxivUrl: 'https://arxiv.org/abs/2506.20804',
+    url: 'https://arxiv.org/abs/2506.20804',
   },
   {
     id: 4,
@@ -151,7 +119,7 @@ const publications = ref([
     venue: 'arXiv preprint arXiv:2506.06798',
     type: 'preprint',
     review: false,
-    arxivUrl: 'https://arxiv.org/abs/2506.06798',
+    url: 'https://arxiv.org/abs/2506.06798',
   },
   {
     id: 5,
@@ -161,8 +129,7 @@ const publications = ref([
     venue: 'RSS 2025 Workshop on Resilient Off-road Autonomous Robotics (ROAR)',
     type: 'workshop',
     review: false,
-    arxivUrl: 'https://arxiv.org/abs/2507.12731',
-    openReviewUrl: 'https://openreview.net/forum?id=822qfWfWwy',
+    url: 'https://arxiv.org/abs/2507.12731',
   },
 
   // 2023
@@ -185,8 +152,7 @@ const publications = ref([
     venue: 'IEEE Robotics and Automation Letters, Vol. 7, No. 2, pp. 5445-5452',
     type: 'journal',
     review: false,
-    arxivUrl: 'https://arxiv.org/abs/2111.10462',
-    ieeeUrl: 'https://ieeexplore.ieee.org/document/9720982',
+    url: 'https://ieeexplore.ieee.org/document/9720982',
   },
 
   // 2021
@@ -198,8 +164,7 @@ const publications = ref([
     venue: 'IEEE Transactions on Aerospace and Electronic Systems, Vol. 57, No. 6, pp. 3661-3672',
     type: 'journal',
     review: false,
-    arxivUrl: 'https://arxiv.org/abs/1903.07363',
-    doi: '10.1109/TAES.2021.3082668',
+    url: 'https://doi.org/10.1109/TAES.2021.3082668',
   },
 
   // 2020
@@ -211,7 +176,6 @@ const publications = ref([
     venue: '2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
     type: 'conference',
     review: false,
-    ieeeUrl: 'https://ieeexplore.ieee.org/document/9340969',
   },
   {
     id: 10,
@@ -221,7 +185,6 @@ const publications = ref([
     venue: 'IEEE Transactions on Automation Science and Engineering, Vol. 18, No. 4, pp. 1692-1704',
     type: 'journal',
     review: false,
-    ieeeUrl: 'https://ieeexplore.ieee.org/document/9174665',
   },
   {
     id: 11,
@@ -231,7 +194,7 @@ const publications = ref([
     venue: 'IIIT-Delhi',
     type: 'PhD dissertation',
     review: false,
-    pdfUrl: 'https://repository.iiitd.edu.in/xmlui/handle/123456789/827',
+    url: 'https://repository.iiitd.edu.in/xmlui/handle/123456789/827',
   },
 
   // 2019
@@ -243,7 +206,7 @@ const publications = ref([
     venue: 'Proceedings of the Genetic and Evolutionary Computation Conference (GECCO), pp. 207-214',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/3321707.3321820',
+    url: 'https://dl.acm.org/doi/abs/10.1145/3321707.3321820',
   },
   {
     id: 13,
@@ -253,7 +216,7 @@ const publications = ref([
     venue: 'IEEE Transactions on Aerospace and Electronic Systems, Vol. 55, No. 6, pp. 3016-3028',
     type: 'journal',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8723305',
+    url: 'https://ieeexplore.ieee.org/abstract/document/8723305',
   },
   {
     id: 14,
@@ -263,7 +226,7 @@ const publications = ref([
     venue: 'ACM Student Research Competition / NSF award abstract',
     type: 'award/grant abstract',
     review: false,
-    pdfUrl: 'https://src.acm.org/binaries/content/assets/src/2019/parikshit-maini.pdf',
+    url: 'https://src.acm.org/binaries/content/assets/src/2019/parikshit-maini.pdf',
   },
 
   // 2018
@@ -275,7 +238,7 @@ const publications = ref([
     venue: '2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8593508',
+    url: 'https://ieeexplore.ieee.org/abstract/document/8593508',
   },
   {
     id: 16,
@@ -285,7 +248,7 @@ const publications = ref([
     venue: '2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8593960',
+    url: 'https://ieeexplore.ieee.org/abstract/document/8593960',
   },
   {
     id: 17,
@@ -295,7 +258,7 @@ const publications = ref([
     venue: 'Proceedings of the 33rd Annual ACM Symposium on Applied Computing, pp. 847-848',
     type: 'student research abstract',
     review: false,
-    pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/3167132.3167450',
+    url: 'https://dl.acm.org/doi/abs/10.1145/3167132.3167450',
   },
 
   // 2017
@@ -307,7 +270,7 @@ const publications = ref([
     venue: '2017 11th Asian Control Conference (ASCC), pp. 1276-1281',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/8287354',
+    url: 'https://ieeexplore.ieee.org/abstract/document/8287354',
   },
 
   // 2016
@@ -319,7 +282,7 @@ const publications = ref([
     venue: '2016 International Conference on Unmanned Aircraft Systems (ICUAS), pp. 62-67',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/7502625',
+    url: 'https://ieeexplore.ieee.org/abstract/document/7502625',
   },
 
   // 2015
@@ -331,7 +294,7 @@ const publications = ref([
     venue: '2015 International Conference on Unmanned Aircraft Systems (ICUAS), pp. 1370-1377',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/7152432',
+    url: 'https://ieeexplore.ieee.org/abstract/document/7152432',
   },
   {
     id: 21,
@@ -341,7 +304,7 @@ const publications = ref([
     venue: 'Proceedings of the 30th Annual ACM Symposium on Applied Computing, pp. 301-306',
     type: 'conference',
     review: false,
-    pdfUrl: 'https://dl.acm.org/doi/abs/10.1145/2695664.2695893',
+    url: 'https://dl.acm.org/doi/abs/10.1145/2695664.2695893',
   },
 ])
 
@@ -411,11 +374,12 @@ function typeLabel(type) {
   line-height: 1.4;
 }
 
-.link-btn {
-  font-size: 0.8rem !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  padding: 0 6px !important;
-  min-width: unset !important;
+.pub-title--link {
+  color: rgb(var(--v-theme-primary));
+  text-decoration: underline;
+}
+
+.pub-title--link:hover {
+  opacity: 0.75;
 }
 </style>

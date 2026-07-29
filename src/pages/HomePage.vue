@@ -1,7 +1,6 @@
 <template>
   <v-container max-width="900" class="py-16 text-center">
 
-
     <h1 class="hero-title mb-12" style="color: rgb(var(--v-theme-secondary));">
       Systems and Algorithms for Robot Autonomy Lab (SARAL)
     </h1>
@@ -15,16 +14,8 @@
       cycle
       interval="5000"
     >
-      <v-carousel-item
-        v-for="slide in slides"
-        :key="slide.id"
-      >
-        <v-img
-          :src="slide.src"
-          :alt="slide.caption"
-          height="420"
-          cover
-        >
+      <v-carousel-item v-for="slide in slides" :key="slide.id">
+        <v-img :src="slide.src" :alt="slide.caption" height="420" cover>
           <template v-if="slide.caption" v-slot:default>
             <div class="slide-caption d-flex align-end fill-height pa-4">
               <span class="caption-text">{{ slide.caption }}</span>
@@ -35,8 +26,8 @@
     </v-carousel>
 
     <p class="hero-subtitle text-medium-emphasis mb-16 mx-auto" style="max-width: 540px;">
-      UNR Robotics research lab focused on developing algorithms and systems for autonomous robots in real-world environments.
-      We work on perception, planning, and control for mobile manipulation.
+      UNR Robotics research lab focused on developing algorithms and systems for autonomous robots
+      in real-world environments. We work on perception, planning, and control for mobile manipulation.
     </p>
 
     <!-- News Section -->
@@ -47,18 +38,21 @@
         <v-divider />
       </div>
 
-      <div class="d-flex flex-column gap-3">
+      <div class="d-flex flex-column" style="gap: 12px;">
         <v-card
           v-for="item in news"
           :key="item.id"
-          flat
-          border
+          flat border
           class="news-card pa-4"
         >
-          <div class="d-flex align-start gap-4">
+          <div class="d-flex align-start" style="gap: 16px;">
 
             <!-- Date badge -->
-            <div class="news-date flex-shrink-0">{{ item.date }}</div>
+            <div class="news-date-badge flex-shrink-0 text-center">
+              <div class="news-month">{{ month(item.date) }}</div>
+              <div class="news-day">{{ day(item.date) }}</div>
+              <div class="news-year">{{ year(item.date) }}</div>
+            </div>
 
             <!-- Content -->
             <div class="flex-grow-1">
@@ -96,24 +90,42 @@ const slides = ref([
 ])
 
 // ── News data ─────────────────────────────────────────────────────────────────
-// Each entry supports: id, date, title, body (optional), link (optional)
-// link can be an internal path (e.g. '/research') or an external URL
+// date: 'YYYY-MM-DD' format
+// link: external URL or internal path — leave as '' to hide the button
 const news = ref([
-  //{
-  //  id: 1,
-  //    date: 'Date here',
-  //    title: 'Hannah's Thesis Defense',
-  //    body: 'Description here',
-  //    link: 'https://www.unr.edu/',
-  //  },
-  // {
-  //  id: 2,
-  //    date: 'Date here',
-  //    title: 'Title here',
-  //    body: 'Description here',
-  //    link: '',
-  //  }
+  {
+    id: 1,
+    date: '2026-06-18',
+    title: "Hannah's Thesis Defense",
+    body: 'Hannah will be defending her thesis on ground robotics planning for moisture management in agricultural environments.',
+    link: 'https://www.unr.edu/',
+  },
+  {
+    id: 2,
+    date: '2026-05-29',
+    title: 'IROS Paper Acceptance',
+    body: 'A research paper submitted to IROS has been accepted for presentation. Congratulations Arif and Dr. Maini!',
+    link: '',
+  },
+  {
+    id: 3,
+    date: '2026-05-01',
+    title: 'Innovation Day Award',
+    body: 'Congratulations to the AGROS WHORL-E team for receiving first in Engineering Design for Innovation Day!',
+    link: '',
+  },
 ])
+
+// Date helpers
+function month(dateStr) {
+  return new Date(dateStr + 'T00:00:00').toLocaleString('default', { month: 'short' }).toUpperCase()
+}
+function day(dateStr) {
+  return new Date(dateStr + 'T00:00:00').getDate()
+}
+function year(dateStr) {
+  return new Date(dateStr + 'T00:00:00').getFullYear()
+}
 </script>
 
 <style scoped>
@@ -162,12 +174,33 @@ const news = ref([
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
-.news-date {
-  font-size: 0.775rem;
-  font-weight: 600;
-  color: rgb(var(--v-theme-primary));
-  min-width: 90px;
-  padding-top: 2px;
+.news-date-badge {
+  width: 60px;
+  background-color: rgb(var(--v-theme-primary));
+  border-radius: 8px;
+  padding: 6px 4px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.news-month {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.news-day {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.news-year {
+  font-size: 0.65rem;
+  font-weight: 500;
+  line-height: 1.4;
+  opacity: 0.85;
 }
 
 .news-title {
