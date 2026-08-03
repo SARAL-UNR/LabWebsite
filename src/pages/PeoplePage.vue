@@ -86,7 +86,7 @@ const people = ref([
   },
   {
     id: 3,
-    slug: 'nathaniel-rose',
+    slug: 'https://www.linkedin.com/in/nathaniel-rose-64916b165/',
     name: 'Nathaniel Rose',
     description: 'PhD Student',
     group: 'PhD Students',
@@ -97,7 +97,7 @@ const people = ref([
   // Master's Students
   {
     id: 4,
-    slug: 'hannah-chuang',
+    slug: 'https://www.linkedin.com/in/hannah-chuang-0a42981ba/',
     name: 'Hannah Chuang',
     description: "Master's Student",
     group: "Master's Students",
